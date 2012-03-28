@@ -1,0 +1,12 @@
+{
+  "name": "Bilingual Aphasia Test Scorer",
+  "version": "1.0",
+  "description": "an html file to calculate score like an excel formula from a google spreadsheet",
+  "app": {
+    "launch": {
+      "local_path": "view/main.html"
+    }
+  },
+  "offline_enabled": true
+  
+}

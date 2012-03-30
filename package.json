@@ -1,0 +1,15 @@
+{
+    "name": "bilingualaphasiatestscorer-js",
+    "description": "Scoring web app for the Bilingual Aphasia Test",
+    "version": "1.0.0",
+    "author": "iLanguage Open Source Team <apps@ilanguage.ca>",
+    "keywords": ["speech language pathology", "bilingual aphasia test"],
+    "main" : "server.js",
+    "dependencies": {
+			 "express": ""
+			,"connect": ""
+			,"request": ""
+		},
+    "repository" : {"type": "git" , "url": "https://github.com/iLanguage/BilingualAphasiaTestScorer" },
+    "engines": { "node": ">=0.6.0 <0.7.0" }
+}

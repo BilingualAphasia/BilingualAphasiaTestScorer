@@ -1,16 +1,82 @@
 <html>
-<head>
-<link rel="stylesheet" type="text/css" href="./../css/main.css">
-<title>Bilingual Aphasia Test Scorer</title>
+    <head>
+    <title>Completed sample for turning a Google Spreadsheet into an HTML Table</title>
+    <!-- Add a div where the table will go -->
+ 
+    <script type='text/javascript'>
+        //Write a function that allows us to add commas to raw numbers in spreadsheet for display.  2413 becomes 2,413.
+        function addCommas(nStr)
+        {
+        	nStr += '';
+        	x = nStr.split('.');
+        	x1 = x[0];
+        	x2 = x.length > 1 ? '.' + x[1] : '';
+        	var rgx = /(\d+)(\d{3})/;
+        	while (rgx.test(x1)) {
+        		x1 = x1.replace(rgx, '$1' + ',' + '$2');
+        	}
+        	return x1 + x2;
+        }
+ 
+        //this will be executed after we "fetch" the contents of a spreadsheet. The json parameter will hold our spreadsheet's data
+        function displayContent(json) {
+            //start an html table and write out our headers.  Using <td> tags so it isn't bold and centered, which is the <th> default.
+            var pre_html = '<table id = "salaries"><tr><td>City</td><td>Name</td>\
+    <td>2009 taxable<br />compensation*</td>\
+    <td>Population</td><td>Median income</td></thead><tbody>';
+            //Create an empty string to hold the HTML. We will put table data here.
+            var actual_html='';
+            //After we grab the table, close the HTML table.
+            var post_html = '</tbody></table>'
+            //figure out how many rows our spreadsheet has
+            var len = json.feed.entry.length
+ 
+            //loop through the spreadsheet, gathering data
+            for (var i=0; i<len; i++) {
+                //for each row, add the following to actual HTML, grabbing it as a list, and then joining the list together as one long string.
+                //Uses HTML for table cells, and then grabs attributes from the spreadsheet, using appropriate syntax. Enter your table header in the Google spreadsheet between            
+                //the gsx$ and .$t.
+                actual_html += [
+                    '<tr><td>', 
+                    '<a target="_blank" title="Mapping L.A." href="', 
+                    json.feed.entry[i].gsx$mappinglink.$t, 
+                    '">', 
+                    json.feed.entry[i].gsx$city.$t, 
+                    '</a>', 
+                    '</td><td>', 
+                    '<a target="_blank" title="City website" href="',  
+                    json.feed.entry[i].gsx$personwebsite.$t, 
+                    '">', 
+                    json.feed.entry[i].gsx$name.$t, 
+                    '</a>', 
+                    '<br /><span>', 
+                    json.feed.entry[i].gsx$title.$t, 
+                    '</span>', 
+                    '<a target="_blank"  href="', 
+                    json.feed.entry[i].gsx$email.$t, 
+                    '"></a>', 
+                    '</td><td>', 
+                    addCommas(json.feed.entry[i].gsx$compensation.$t), 
+                    '</td>', 
+                    '<td>', 
+                    addCommas(json.feed.entry[i].gsx$population.$t), 
+                    '</td>',
+                       '<td>', 
+                        addCommas(json.feed.entry[i].gsx$medianincome.$t), 
+                        '</td>','</tr>'
+                ].join('');  
+            }
+            //put all three of our HTML strings into our div we made at the top of the page
+            document.getElementById('salary_table_container').innerHTML = pre_html + actual_html + post_html
+ 
+        }   
+    </script>
 </head>
 <body>
-
-<h1> Bilingual Aphasia Test Scorer en francais</h1>
-<div id="container">
-	<div id="score_zone"> <h2>Score Here</h2>
-		<output id="list"></output>
-		<script type="text/javascript" charset="utf-8" src="./../src/Scorer.js"></script>
-	</div>
-	 
+<div id="salary_table_container"></div>
+ 
+<!-- Grab the data from our google spreadsheet, using the callback to call the function we just created -->
+<script src="http://spreadsheets.google.com/feeds/list/0AlO_LanGCFltdGlsa2hSNHhOdHlCYmpFeXdlY0ZNS2c/od6/public/values?alt=json-in-script&amp;callback=displayContent" type="text/javascript"></script>
+ 
 </body>
 </html>

@@ -7,6 +7,16 @@
       "local_path": "view/main.html"
     }
   },
-  "offline_enabled": true
-  
+  "offline_enabled": true,
+  "content_scripts": [
+    {
+      "matches": ["http://www.google.com/robots.txt*"],
+      "js": ["oauth2/oauth2_inject.js"],
+        "run_at": "document_start"
+    }
+  ],
+  "permissions": [
+    "https://accounts.google.com/o/oauth2/token",
+    "https://www.googleapis.com/"
+  ]
 }

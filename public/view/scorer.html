@@ -12,11 +12,13 @@
 		<script type="text/javascript" charset="utf-8" src="./../src/Scorer.js"></script>
 	</div>
 	 <script src="/oauth2/oauth2.js"></script>
+	 <script src="./../src/nonpublic.js"></script>
+
 	 <script>
-	 
+
 var google = new OAuth2('google', {
-  client_id: '952993494713-h12m6utvq8g8d8et8n2i68plbrr6cr4d.apps.googleusercontent.com',
-  client_secret: 'IZ4hBSbosuhoWAX4lyAomm-R',
+  client_id: window.clientidnonpublic,
+  client_secret: window.clientsecretnonpublic,
   api_scope: 'https://www.googleapis.com/auth/tasks'
 });
 

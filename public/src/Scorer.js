@@ -66,15 +66,99 @@ var scorePhonology = function(){
 	var total = 0;
 	var score = 0;
 	/*
-	add 
+	For spontaneous speech, add the first number in the answer
 	*/
 	var questions = [18,19,20,21,22]
 	for (q in questions){
-		if(parseInt(questions[q])){
-			score = parseInt(score)+parseInt(questions[q]);
+		var num = data[questions[q]].match(/[0-9]*/);
+		num = parseInt(num[0]);
+		if(num > 0){
+			score = parseInt(score)+num;
 			total++;
 		}
 	}
+
+	/*
+	For Verbal Auditory discrimination
+	*/
+	var questions = [{"num":48,"res":"2"}
+		,{"num":49,"res":"1"}
+		,{"num":50,"res":"X"}
+		,{"num":51,"res":"1"}
+		,{"num":52,"res":"2"}
+		,{"num":53,"res":"4"}
+		,{"num":54,"res":"4"}
+		,{"num":55,"res":"5"}
+		,{"num":56,"res":"2"}
+		,{"num":57,"res":"X"}
+		,{"num":58,"res":"3"}
+		,{"num":59,"res":"1"}
+		,{"num":60,"res":"2"}
+		,{"num":61,"res":"X"}
+		,{"num":62,"res":"4"}
+		,{"num":63,"res":"3"}
+		,{"num":64,"res":"3"}
+		,{"num":65,"res":"1"}
+		];
+	for (q in questions){
+		if(data[questions[q].num] == questions[q].res){
+			score = score + 1;
+			total++;
+		}else if(data[questions[q]]=="0"){
+			//do nothing, the score doesnt change, and the total doesnt go up as per the instructions.
+		}else{
+			score = score+0;
+			total++;
+		}
+	}
+
+	/*
+	For repetition of words
+	*/
+	var questions = [193,194,195,196,197,198,199,200,201,202,203,204,205,206,207,208,209,210,211,212,213,214,215,216,217,218,219,220,221,222,223,224,225,226,227,228,229,230,231,232,233,234,235,236,237,238,239,240,241,242,243,244,245,246,247,248,249,250,251];
+	for (q in questions){
+		if(data[questions[q]] == "+"){
+			score = score+1;
+			total++;
+		}else if(data[questions[q]] == "-"){
+			total++;
+		} 
+	}
+
+	/*
+	For description
+	*/
+	var num = data[344].match(/[0-9]*/);
+	num = parseInt(num[0]);
+	if(num > 0){
+		score = parseInt(score)+num;
+		total++;
+	}
+	if(data[345] =="+"){
+		score = score+1;
+		total++;
+	}else if(data[345] =="-"){
+		total++;
+	}
+	var num = data[346].match(/[0-9]*/);
+	num = parseInt(num[0]);
+	if(num > 0){
+		score = parseInt(score)+num;
+		total++;
+	}
+	/*
+	Reading out loud
+	*/
+	var questions = [367,368,369,370,371,372,373,374,375,376];
+	for (q in questions){
+		if(data[questions[q]] == "+"){
+			score = score+1;
+			total++;
+		}else if(data[questions[q]] == "-"){
+			total++;
+		} 
+	}
+
 	newarea.innerHTML = newarea.innerHTML + "<span>"+score+"/"+total+"</span";
 };
 

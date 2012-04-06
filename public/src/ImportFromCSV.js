@@ -1,5 +1,6 @@
 window.rows=[];
-window.sheets=[]
+window.sheets=[];
+window.participant ={};
 var importFromCSV = function(filename){
 	var output= document.getElementById('data_area');
 	var contents = output.innerHTML.split("\n");
@@ -48,6 +49,24 @@ var showRow = function(r){
 		var q = document.createElement("div");
 		q.innerHTML="<span class='question'>"+row[c].question+"</span> : <span class='response'>"+row[c].response+"</span>";
 		output.appendChild(q);
+	}
+};
+var findQuestionsInRow = function(r){
+	var output = document.getElementById('question_area');
+	output.innerHTML = "";
+	var row = window.rows[r];
+	var participant = window.participant;
+	participant.raw = window.rows[r];
+	participant.data = [];
+	for(c in row){
+		var num = row[c].question.match(/[0-9]*/);
+		num = parseInt(num[0]);
+		if(num){
+			participant.data[num] = row[c].response;
+			var q = document.createElement("div");
+			q.innerHTML="<span class='participantquestion'>"+row[c].question+"</span> : <span class='response'>"+row[c].response+"</span>";
+			output.appendChild(q);
+		}
 	}
 };
 /*

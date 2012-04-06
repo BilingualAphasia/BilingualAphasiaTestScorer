@@ -33,11 +33,27 @@ h1, h2, h3, h4 {
 	font-family: Lobster, Arial, Helvetica, sans-serif;
 	
 }
+
 #drop_zone{
 	background-color:#333;
+	margin:1em;
+	padding:1em;
+}
+#question_area{
+	background-color:#333;
+	margin:1em;
+	padding:1em;
+}
+#data_area{
+	background-color:#333;
+	margin:1em;
+	padding:1em;
 }
 .question{
 	color:#FFcc00;
+}
+.participantquestion{
+	color:#c3f;
 }
 .response{
 	color:#FFFF00;
@@ -85,8 +101,17 @@ h1, h2, h3, h4 {
 	padding: .2em;
 }
 input, textarea{
-	background-color:#000;
+	background-color:#f90;
 	color:#fff;
+	border:1px solid #f8b635;
+	padding:  0.25em 0.25em 0.25em 0.25em;
+	font-size:1em;
+	font-weight: bold;
+	/* CSS3 spicing */
+	-moz-border-radius:4px;
+	-webkit-border-radius:4px;	
+	-moz-box-shadow:0 0 6px #f8b635;
+	-webkit-box-shadow:0 0 6px #f8b635;		
 }
 .tilerow{
 	margin: auto;
@@ -104,6 +129,10 @@ input, textarea{
 
 .copyright {
 	font-size: .7em;
+}
+.purple{
+	background-color:#c0c;
+
 }
 /*------------------------------
 =FOOTER

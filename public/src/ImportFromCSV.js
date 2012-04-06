@@ -2,6 +2,18 @@ window.rows=[];
 window.sheets=[];
 window.participant ={};
 
+String.prototype.splitCSV = function(sep) {
+  for (var foo = this.split(sep = sep || ","), x = foo.length - 1, tl; x >= 0; x--) {
+    if (foo[x].replace(/"\s+$/, '"').charAt(foo[x].length - 1) == '"') {
+      if ((tl = foo[x].replace(/^\s+"/, '"')).length > 1 && tl.charAt(0) == '"') {
+        foo[x] = foo[x].replace(/^\s*"|"\s*$/g, '').replace(/""/g, '"');
+      } else if (x) {
+        foo.splice(x - 1, 2, [foo[x - 1], foo[x]].join(sep));
+      } else foo = foo.shift().split(sep).concat(foo);
+    } else foo[x].replace(/""/g, '"');
+  } return foo;
+};
+
 var importFromCSV = function(filename){
 	var output= document.getElementById('data_area');
 	var contents = output.innerHTML.split("\n");
@@ -11,12 +23,12 @@ var importFromCSV = function(filename){
 	}
 	output.innerHTML="";
 	
-	var header  = contents[0].split(",");
+	var header  = contents[0].splitCSV();
 	contents.splice(0,1);
 	var sheets = window.sheets;
 	for(r in contents){
 		var rowobj = [];
-		var rowcontents = contents[r].split(",");
+		var rowcontents = contents[r].splitCSV();
 		for (c in rowcontents){
 			var obj = {};
 			obj.question = header[c];

@@ -32,12 +32,50 @@ SCORES BY LINGUISTIC LEVEL AND SKILL
 
 
 */
+var scoreBAT = function(){
+	scorePhonology();
+	scoreMorphology();
+	scoreLexicon();
+	scoreSyntax();
+	scoreSemantics();
+	scoreMorphologySyntaxC();
+	scoreLexiconC();
+	scoreComprehension();
+	scoreRepetition();
+	scoreJudgment();
+	scoreLexical();
+	scoreAccess();
+	scorePropositionalizing();
+	scoreReading();
+	scoreWriting();
+	scoreTranslationC();
+	scoreGrammaticalityJudgmentC();
+
+};
+
 
 /* 
  TODO 
 */
 var scorePhonology = function(){
-
+	var area = document.getElementById("score_zone");
+	var newarea = document.createElement("div");
+	newarea.innerHTML = "<span class='scoretitle'>Phonology: </span>";
+	area.appendChild(newarea);
+	var data = JSON.parse(localStorage.getItem("participant")).data;
+	var total = 0;
+	var score = 0;
+	/*
+	add 
+	*/
+	var questions = [18,19,20,21,22]
+	for (q in questions){
+		if(parseInt(questions[q])){
+			score = parseInt(score)+parseInt(questions[q]);
+			total++;
+		}
+	}
+	newarea.innerHTML = newarea.innerHTML + "<span>"+score+"/"+total+"</span";
 };
 
 
@@ -76,7 +114,7 @@ var scoreSemantics = function(){
 /* 
  TODO 
 */
-var scoreMorphology/SyntaxC = function(){
+var scoreMorphologySyntaxC = function(){
 
 };
 
@@ -167,3 +205,5 @@ var scoreTranslationC = function(){
 var scoreGrammaticalityJudgmentC = function(){
 
 };
+
+scoreBAT();

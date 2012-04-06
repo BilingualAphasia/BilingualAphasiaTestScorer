@@ -1,6 +1,7 @@
 window.rows=[];
 window.sheets=[];
 window.participant ={};
+
 var importFromCSV = function(filename){
 	var output= document.getElementById('data_area');
 	var contents = output.innerHTML.split("\n");
@@ -51,6 +52,22 @@ var showRow = function(r){
 		output.appendChild(q);
 	}
 };
+var showParticipant = function(){
+	var output = document.getElementById('question_area');
+	output.innerHTML = "";
+	var participant = window.participant;
+	var row = participant.data;
+	for(c in row){
+		if(row[c] != null){
+			var q = document.createElement("div");
+			q.innerHTML="<span class='participantquestion'>"+c+"</span> : <span class='response'>"+row[c]+"</span>";
+			output.appendChild(q);
+		}else{
+			row[c]="";
+		}
+	}
+	localStorage.setItem("participant",JSON.stringify(participant));
+};
 var findQuestionsInRow = function(r){
 	var output = document.getElementById('question_area');
 	output.innerHTML = "";
@@ -68,7 +85,20 @@ var findQuestionsInRow = function(r){
 			output.appendChild(q);
 		}
 	}
+	var x = window.confirm("Are you sure you want replace the current participant with this participant?")
+	if (x){
+		localStorage.setItem("participant",JSON.stringify(participant));
+		
+	}	else{
+		//window.alert("Not deleteing.")
+	}
 };
+
+if(localStorage.getItem("participant")){
+	window.participant= JSON.parse(localStorage.getItem("participant"));
+	showParticipant();
+}	
+	
 /*
  HTML5 Drag and Drop, for more information http://www.html5rocks.com/en/tutorials/file/dndfiles/
  */

@@ -1,7 +1,9 @@
-
+window.rows=[];
+window.sheets=[]
 var importFromCSV = function(filename){
 	var output= document.getElementById('data_area');
-	var contents= output.innerHTML.split("\n");
+	var contents = output.innerHTML.split("\n");
+	
 	if(contents[0].length < contents[1].length){
 		return;
 	}
@@ -9,7 +11,7 @@ var importFromCSV = function(filename){
 	
 	var header  = contents[0].split(",");
 	contents.splice(0,1);
-	var rows = [];
+	var sheets = window.sheets;
 	for(r in contents){
 		var rowobj = [];
 		var rowcontents = contents[r].split(",");
@@ -18,15 +20,35 @@ var importFromCSV = function(filename){
 			obj.question = header[c];
 			obj.response = rowcontents[c];
 			rowobj.push(obj);
-			var q = document.createElement("div");
-			q.innerHTML="<span class='question'>"+header[c]+"</span> : <span class='response'>"+rowcontents[c]+"</span>";
-			output.appendChild(q);
+			
 		}
-		rows.push(rowobj);
+		sheets.push(rowobj);
 	}
-	window.rows = rows;
+	showRow(sheets.length-1);
+	
 	
 
+};
+var combineSheets = function(first,second){
+	var f = window.sheets[first];
+	var s = window.sheets[second];
+	window.rows.push(f.concat(s));
+	window.sheets.splice(second,1);
+	window.sheets.splice(first,1);
+	showRow(window.rows.length - 1);
+}
+var showRow = function(r){
+	var output = document.getElementById('question_area');
+	output.innerHTML = "";
+	var row = window.rows[r];
+	if(! row){
+		row = window.sheets[r];
+	}
+	for(c in row){
+		var q = document.createElement("div");
+		q.innerHTML="<span class='question'>"+row[c].question+"</span> : <span class='response'>"+row[c].response+"</span>";
+		output.appendChild(q);
+	}
 };
 /*
  HTML5 Drag and Drop, for more information http://www.html5rocks.com/en/tutorials/file/dndfiles/
@@ -93,6 +115,7 @@ var importFromCSV = function(filename){
 				evt.stopPropagation();
 				evt.preventDefault();
 				evt.dataTransfer.dropEffect = 'copy'; // Explicitly show this is a copy.
+				document.getElementById('question_area').innerHTML="";
 			}
 	};
 	document.body.addEventListener('dragover', APP.file.handleDragOver, false);

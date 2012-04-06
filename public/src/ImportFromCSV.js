@@ -1,12 +1,30 @@
 
 var importFromCSV = function(filename){
-	var contents= document.getElementById('data_area').innerHTML.split("\n");
+	var output= document.getElementById('data_area');
+	var contents= output.innerHTML.split("\n");
 	if(contents[0].length < contents[1].length){
 		return;
 	}
-
+	output.innerHTML="";
 	
-	document.getElementById('data_area').innerHTML="";
+	var header  = contents[0].split(",");
+	contents.splice(0,1);
+	var rows = [];
+	for(r in contents){
+		var rowobj = [];
+		var rowcontents = contents[r].split(",");
+		for (c in rowcontents){
+			var obj = {};
+			obj.question = header[c];
+			obj.response = rowcontents[c];
+			rowobj.push(obj);
+			var q = document.createElement("div");
+			q.innerHTML="<span class='question'>"+header[c]+"</span> : <span class='response'>"+rowcontents[c]+"</span>";
+			output.appendChild(q);
+		}
+		rows.push(rowobj);
+	}
+	window.rows = rows;
 	
 
 };

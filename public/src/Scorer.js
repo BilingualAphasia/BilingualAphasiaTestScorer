@@ -167,7 +167,29 @@ var scorePhonology = function(){
  TODO 
 */
 var scoreMorphology = function(){
+	var area = document.getElementById("score_zone");
+	var newarea = document.createElement("div");
+	newarea.innerHTML = "<span class='scoretitle'>Morphology: </span>";
+	area.appendChild(newarea);
+	var data = JSON.parse(localStorage.getItem("participant")).data;
+	var total = 0;
+	var score = 0;
+	
+	var questions = [324,325,326,327,328,329,330,331,332,333];
+	for (q in questions){
+		console.log( data[questions[q]] );
+		if(data[questions[q]] == "+"){
+			score = score+1;
+			total++;
+		}else if(data[questions[q]].indexOf("1") > -1){
+			score = score+1;
+			total++;
+		}else if(data[questions[q]] == "-"){
+			total++;
+		} 
+	}
 
+	newarea.innerHTML = newarea.innerHTML + "<span>"+score+"/"+total+"</span";
 };
 
 

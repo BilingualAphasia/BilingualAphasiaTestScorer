@@ -1,0 +1,151 @@
+/* Tell the browser to render HTML 5 elements as block */
+header,footer,section,aside,nav,article {
+	display: block;
+}
+@font-face {
+  font-family: 'Lobster';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Lobster'), url('./../fonts/google_lobster_font.woff') format('woff');
+}
+
+body {
+	margin: 0 auto;
+	padding: 1em 0;
+	font-family: Arial, Helvetica, sans-serif;
+	background-color: #222;
+	height: 90%;
+	color: #fff;
+}
+header{
+	width:80%;
+	white-space:nowrap;
+	margin:auto;
+	text-align:center;
+}
+p {
+	padding-bottom: 1em;
+}
+a {
+	color:#fff;
+}
+h1, h2, h3, h4 {
+	font-family: Lobster, Arial, Helvetica, sans-serif;
+	
+}
+#drop_zone{
+	background-color:#333;
+}
+.service{
+	clear:both;	
+	padding: 1em;
+	width:60%;
+	background-color:#333;
+	margin:auto;
+}		
+#quote{
+	font-family: Lobster, Arial, Helvetica, sans-serif;
+	font-size: 2em;
+	margin: auto;
+	width: 80% ;
+}
+#case_study{
+	margin: 3em ;
+	height: 8em;
+}
+#service_cost{
+	float:right;
+	font-family: Lobster, Arial, Helvetica, sans-serif;
+	font-size: 1.5em;
+}
+#service_name{
+	float:left;
+	font-family: Lobster, Arial, Helvetica, sans-serif;
+	font-size: 1.5em;
+}
+#service_description{
+	clear:both;
+	padding: 1em;
+}
+#details{
+	display: table;
+	margin:auto;
+	padding: 1em;
+}
+#details section {
+	display: table-cell;
+	width: 40%;
+	vertical-align:top;
+	padding: .2em;
+}
+input, textarea{
+	background-color:#000;
+	color:#fff;
+}
+.tilerow{
+	margin: auto;
+}
+.tile{
+	padding: 1em;
+	width: 250px;
+	height: 250px;
+}
+.headertile{
+	padding: .2em;
+	width: 80px;
+	height: 80px;
+}
+
+.copyright {
+	font-size: .7em;
+}
+/*------------------------------
+=FOOTER
+------------------------------*/
+footer {
+	position: absolute;
+	left: 0;
+	width: 100%;
+	background-color: #000;
+
+}
+
+	footer div {
+		display: table;
+		margin: 0 auto;
+		padding: 44px 0;
+		width: 940px;
+		color: #777;
+	}
+	
+		footer div section {
+			display: table-cell;
+			width: 300px;
+		}
+		
+		footer div #about, footer div #blogroll {
+			padding-right: 20px;
+		}
+		
+	footer h3 {
+		color: #FFF;
+	}
+	
+	footer a {
+		color: #999;
+	}
+	
+		footer a:hover {
+			color: #FFF;
+			text-decoration: none;
+		}
+	
+	footer ul {
+		margin: 0 0 0 40px;
+		list-style: square;
+		color: #565656;
+	}
+	
+		footer ul li a {
+			display: block;
+		}

@@ -66,17 +66,17 @@ var scorePhonology = function(){
 	var total = 0;
 	var score = 0;
 	/*
-	For spontaneous speech, add the first number in the answer
+	For spontaneous speech, See post test anysis 514-539
 	*/
-	var questions = [18,19,20,21,22]
-	for (q in questions){
-		var num = data[questions[q]].match(/[0-9]*/);
-		num = parseInt(num[0]);
-		if(num > 0){
-			score = parseInt(score)+num;
-			total++;
-		}
-	}
+	// var questions = [18,19,20,21,22]
+	// for (q in questions){
+	// 	var num = data[questions[q]].match(/[0-9]*/);
+	// 	num = parseInt(num[0]);
+	// 	if(num > 0){
+	// 		score = parseInt(score)+num;
+	// 		total++;
+	// 	}
+	// }
 
 	/*
 	For Verbal Auditory discrimination
@@ -126,26 +126,26 @@ var scorePhonology = function(){
 	}
 
 	/*
-	For description
+	For description, cannot be calculated automatically see post test 540-565
 	*/
-	var num = data[344].match(/[0-9]*/);
-	num = parseInt(num[0]);
-	if(num > 0){
-		score = parseInt(score)+num;
-		total++;
-	}
-	if(data[345] =="+"){
-		score = score+1;
-		total++;
-	}else if(data[345] =="-"){
-		total++;
-	}
-	var num = data[346].match(/[0-9]*/);
-	num = parseInt(num[0]);
-	if(num > 0){
-		score = parseInt(score)+num;
-		total++;
-	}
+	// var num = data[344].match(/[0-9]*/);
+	// num = parseInt(num[0]);
+	// if(num > 0){
+	// 	score = parseInt(score)+num;
+	// 	total++;
+	// }
+	// if(data[345] =="+"){
+	// 	score = score+1;
+	// 	total++;
+	// }else if(data[345] =="-"){
+	// 	total++;
+	// }
+	// var num = data[346].match(/[0-9]*/);
+	// num = parseInt(num[0]);
+	// if(num > 0){
+	// 	score = parseInt(score)+num;
+	// 	total++;
+	// }
 	/*
 	Reading out loud
 	*/

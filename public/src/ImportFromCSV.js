@@ -1,6 +1,14 @@
 
 var importFromCSV = function(filename){
+	var contents= document.getElementById('data_area').innerHTML.split("\n");
+	if(contents[0].length < contents[1].length){
+		return;
+	}
+
 	
+	document.getElementById('data_area').innerHTML="";
+	
+
 };
 /*
  HTML5 Drag and Drop, for more information http://www.html5rocks.com/en/tutorials/file/dndfiles/

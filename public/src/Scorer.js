@@ -931,7 +931,7 @@ var scoreSyntax = function(){
 var scoreSemantics = function(){
     var area = document.getElementById("score_zone");
     var newarea = document.createElement("div");
-    newarea.innerHTML = "<span class='scoretitle'>Syntax: </span>";
+    newarea.innerHTML = "<span class='scoretitle'>Semantics: </span>";
     area.appendChild(newarea);
     var data = JSON.parse(localStorage.getItem("participant")).data;
     var total = 0;
@@ -972,7 +972,29 @@ var scoreLexiconC = function(){
  TODO 
 */
 var scoreComprehension = function(){
+    var area = document.getElementById("score_zone");
+    var newarea = document.createElement("div");
+    newarea.innerHTML = "<span class='scoretitle'>Comprehension: </span>";
+    area.appendChild(newarea);
+    var data = JSON.parse(localStorage.getItem("participant")).data;
+    var total = 0;
+    var score = 0;
 
+    scorePointing();
+    scoreSimpleandSemiComplexCommands();
+    scoreComplexCommands();
+    scoreVerbalAuditoryDiscrimination();
+    scoreSyntacticComprehension();
+    scoreListeningComprehension();
+    scoreReadingComprehensionforParagraphs();
+    scoreDictationofWords();
+    scoreDictationofSentences();
+    scoreReadingComprehensionforWords();
+    scoreReadingComprehensionforSentences();
+
+
+
+    newarea.innerHTML = newarea.innerHTML + "<span>"+score+"/"+total+"</span";
 };
 
 
@@ -980,7 +1002,19 @@ var scoreComprehension = function(){
  TODO 
 */
 var scoreRepetition = function(){
+    var area = document.getElementById("score_zone");
+    var newarea = document.createElement("div");
+    newarea.innerHTML = "<span class='scoretitle'>Repetition: </span>";
+    area.appendChild(newarea);
+    var data = JSON.parse(localStorage.getItem("participant")).data;
+    var total = 0;
+    var score = 0;
 
+    scoreRepetitionWords();
+    scoreRepetitionSentences();
+
+
+    newarea.innerHTML = newarea.innerHTML + "<span>"+score+"/"+total+"</span";
 };
 
 
@@ -988,31 +1022,74 @@ var scoreRepetition = function(){
  TODO 
 */
 var scoreJudgment = function(){
+    var area = document.getElementById("score_zone");
+    var newarea = document.createElement("div");
+    newarea.innerHTML = "<span class='scoretitle'>Judgement: </span>";
+    area.appendChild(newarea);
+    var data = JSON.parse(localStorage.getItem("participant")).data;
+    var total = 0;
+    var score = 0;
 
+    scoreGrammaticalityJudgement();
+    scoreSemanticAcceptability();
+    scoreLexicalDecision();
+    scoreSeries();
+
+
+    newarea.innerHTML = newarea.innerHTML + "<span>"+score+"/"+total+"</span";
 };
 
 
 /* 
  TODO 
 */
-var scoreLexical = function(){
+var scoreLexicalAccess = function(){
+    var area = document.getElementById("score_zone");
+    var newarea = document.createElement("div");
+    newarea.innerHTML = "<span class='scoretitle'>Lexical Access: </span>";
+    area.appendChild(newarea);
+    var data = JSON.parse(localStorage.getItem("participant")).data;
+    var total = 0;
+    var score = 0;
 
+    scoreSemanticCategories();
+    scoreSynonyms();
+    scoreAntonyms();
+    scoreVerbalFluency();
+    scoreNaming();
+    scoreSemanticOpposites();
+    scoreDerivationalMorphology();
+    scoreMorphologicalOpposites();
+    scoreDescription();
+    scoreMentalArithmetic();
+
+
+
+    newarea.innerHTML = newarea.innerHTML + "<span>"+score+"/"+total+"</span";
 };
 
 
-/* 
- TODO 
-*/
-var scoreAccess = function(){
-
-};
 
 
 /* 
  TODO 
 */
 var scorePropositionalizing = function(){
+    var area = document.getElementById("score_zone");
+    var newarea = document.createElement("div");
+    newarea.innerHTML = "<span class='scoretitle'>Propositionalizing: </span>";
+    area.appendChild(newarea);
+    var data = JSON.parse(localStorage.getItem("participant")).data;
+    var total = 0;
+    var score = 0;
 
+    scoreSentenceConstruction();
+    scoreDerivationalMorphology();
+    scoreMorphologicalOpposites();
+    scoreDescription();
+
+
+    newarea.innerHTML = newarea.innerHTML + "<span>"+score+"/"+total+"</span";
 };
 
 
@@ -1020,7 +1097,22 @@ var scorePropositionalizing = function(){
  TODO 
 */
 var scoreReading = function(){
+    var area = document.getElementById("score_zone");
+    var newarea = document.createElement("div");
+    newarea.innerHTML = "<span class='scoretitle'>Reading: </span>";
+    area.appendChild(newarea);
+    var data = JSON.parse(localStorage.getItem("participant")).data;
+    var total = 0;
+    var score = 0;
 
+    scoreReadingWordsAloud();
+    scoreReadingSentencesAloud();
+    scoreReadingComprehensionforParagraphs();
+    scoreReadingComprehensionforWords();
+    scoreReadingComprehensionforSentences();
+
+    newarea.innerHTML = newarea.innerHTML + "<span>"+score+"/"+total+"</span";
+};
 };
 
 
@@ -1028,7 +1120,20 @@ var scoreReading = function(){
  TODO 
 */
 var scoreWriting = function(){
+    var area = document.getElementById("score_zone");
+    var newarea = document.createElement("div");
+    newarea.innerHTML = "<span class='scoretitle'>Writing: </span>";
+    area.appendChild(newarea);
+    var data = JSON.parse(localStorage.getItem("participant")).data;
+    var total = 0;
+    var score = 0;
 
+   scoreCopying();
+   scoreDictationofWords();
+   scoreDictationofSentences();
+
+
+    newarea.innerHTML = newarea.innerHTML + "<span>"+score+"/"+total+"</span";
 };
 
 

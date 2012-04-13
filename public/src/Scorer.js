@@ -32,7 +32,11 @@ SCORES BY LINGUISTIC LEVEL AND SKILL
 
 
 */
+
 var scoreBAT = function(){
+	participant.score = {};
+	window.data = participant.data;
+
 	scorePhonology();
 	scoreMorphology();
 	scoreLexicon();
@@ -50,60 +54,70 @@ var scoreBAT = function(){
 	scoreWriting();
 	scoreTranslationC();
 	scoreGrammaticalityJudgmentC();
-
 };
 
 
 
 /*
- TODO
+ History of Bilingualism
 */
 var scoreHistoryofBilingualism = function(){
-
+	participant.score.HistoryofBilingualism = {"score":0,"total":0};
 };
 
 /*
- TODO
+ EnglishBackground or the background of the langauge
 */
 var scoreEnglishBackground = function(){
-
+	participant.score.EnglishBackground = {"score":0,"total":0};
 };
 
 /*
- TODO
+ For spontaneous speech, See post test anysis 514-539
 */
 var scoreSpontaneousSpeech = function(){
-
-	/*
-	For spontaneous speech, See post test anysis 514-539
-	*/
-	// var questions = [18,19,20,21,22]
-	// for (q in questions){
-	// 	var num = data[questions[q]].match(/[0-9]*/);
-	// 	num = parseInt(num[0]);
-	// 	if(num > 0){
-	// 		score = parseInt(score)+num;
-	// 		total++;
-	// 	}
-	// }
-
+	var score = 0;
+	var total = 0;
+	
+	var questions = [18,19,20,21,22];
+	for (q in questions){
+		var num = data[questions[q]].match(/[0-9]*/);
+		num = parseInt(num[0]);
+		if(num > 0){
+			score = parseInt(score)+num;
+			total = total + 4;
+		}
+	}
+	participant.score.SpontaneousSpeech = {"score":score,"total":total};
 };
 
 /*
- TODO
+ Pointing
 */
 var scorePointing = function(){
+	var score = 0;
+	var total = 0;
+	
+    var questions = [23,24,25,26,27,28,29,30,31,32];
+    for (q in questions){
+        if(data[questions[q]] == "+"){
+            score = score+1;
+            total++;
+        }else if(data[questions[q]] == "-"){
+            total++;
+        }
+    }
+	participant.score.Pointing = {"score":score,"total":total};
 
 };
 
 /*
- TODO
+ SimpleandSemiComplexCommands
 */
 var scoreSimpleandSemiComplexCommands = function(){
-
-  /*
-     Simple commands
-     */
+	var score = 0;
+	var total = 0;
+	
     var questions = [33,34,35,36,37,38,39,40,41,42];
     for (q in questions){
         if(data[questions[q]] == "+"){
@@ -113,18 +127,18 @@ var scoreSimpleandSemiComplexCommands = function(){
             total++;
         }
     }
+	participant.score.SimpleandSemiComplexCommands = {"score":score,"total":total};
 
 };
 
 /*
- TODO
+ ComplexCommands
 */
 var scoreComplexCommands = function(){
-
-	 /*
-     Complex commands
-     */
-    var questions = [43,44,45,46,47]
+	var score = 0;
+	var total = 0;
+	
+	var questions = [43,44,45,46,47]
     for (q in questions){
     	var num = data[questions[q]].match(/[0-9]*/);
     	num = parseInt(num[0]);
@@ -133,18 +147,17 @@ var scoreComplexCommands = function(){
     		total=total+3;
     	}
     }
-
+    participant.score.ComplexCommands = {"score":score,"total":total};
 
 };
 
 /*
- TODO
+ Verbal Auditory Discrimination
 */
 var scoreVerbalAuditoryDiscrimination = function(){
-
-	/*
-	For Verbal Auditory discrimination
-	*/
+	var score = 0;
+	var total = 0;
+	
 	var questions = [{"num":48,"res":"2"}
 		,{"num":49,"res":"1"}
 		,{"num":50,"res":"X"}
@@ -175,7 +188,7 @@ var scoreVerbalAuditoryDiscrimination = function(){
 			total++;
 		}
 	}
-
+	participant.score.VerbalAuditoryDiscrimination = {"score":score,"total":total};
 
 };
 
@@ -183,8 +196,9 @@ var scoreVerbalAuditoryDiscrimination = function(){
  TODO
 */
 var scoreSyntacticComprehension = function(){
-
-
+	var score = 0;
+	var total = 0;
+	
     var questions = [
         {"num":66,"res":"2"}
         ,{"num":67,"res":"1"}
@@ -285,6 +299,8 @@ var scoreSyntacticComprehension = function(){
             total++;
         }
     }
+    participant.score.SyntacticComprehension = {"score":score,"total":total};
+
 };
 
 /*
@@ -591,6 +607,8 @@ var scoreSyntax = function(){
    	scoreComplexCommands();
 	scoreSyntacticComprehension();
     scoreGrammaticalityJudgement();
+
+
 
     newarea.innerHTML = newarea.innerHTML + "<span>"+score+"/"+total+"</span";
 };

@@ -54,17 +54,26 @@ var scoreBAT = function(){
 };
 
 
-/* 
- TODO 
+
+/*
+ TODO
 */
-var scorePhonology = function(){
-	var area = document.getElementById("score_zone");
-	var newarea = document.createElement("div");
-	newarea.innerHTML = "<span class='scoretitle'>Phonology: </span>";
-	area.appendChild(newarea);
-	var data = JSON.parse(localStorage.getItem("participant")).data;
-	var total = 0;
-	var score = 0;
+var scoreHistoryofBilingualism = function(){
+
+};
+
+/*
+ TODO
+*/
+var scoreEnglishBackground = function(){
+
+};
+
+/*
+ TODO
+*/
+var scoreSpontaneousSpeech = function(){
+
 	/*
 	For spontaneous speech, See post test anysis 514-539
 	*/
@@ -77,6 +86,61 @@ var scorePhonology = function(){
 	// 		total++;
 	// 	}
 	// }
+
+};
+
+/*
+ TODO
+*/
+var scorePointing = function(){
+
+};
+
+/*
+ TODO
+*/
+var scoreSimpleandSemiComplexCommands = function(){
+
+  /*
+     Simple commands
+     */
+    var questions = [33,34,35,36,37,38,39,40,41,42];
+    for (q in questions){
+        if(data[questions[q]] == "+"){
+            score = score+1;
+            total++;
+        }else if(data[questions[q]] == "-"){
+            total++;
+        }
+    }
+
+};
+
+/*
+ TODO
+*/
+var scoreComplexCommands = function(){
+
+	 /*
+     Complex commands
+     */
+    var questions = [43,44,45,46,47]
+    for (q in questions){
+    	var num = data[questions[q]].match(/[0-9]*/);
+    	num = parseInt(num[0]);
+    	if(num > 0){
+    		score = parseInt(score)+num;
+    		total=total+3;
+    	}
+    }
+
+
+};
+
+/*
+ TODO
+*/
+var scoreVerbalAuditoryDiscrimination = function(){
 
 	/*
 	For Verbal Auditory discrimination
@@ -112,137 +176,15 @@ var scorePhonology = function(){
 		}
 	}
 
-	/*
-	For repetition of words
-	*/
-	var questions = [193,194,195,196,197,198,199,200,201,202,203,204,205,206,207,208,209,210,211,212,213,214,215,216,217,218,219,220,221,222,223,224,225,226,227,228,229,230,231,232,233,234,235,236,237,238,239,240,241,242,243,244,245,246,247,248,249,250,251];
-	for (q in questions){
-		if(data[questions[q]] == "+"){
-			score = score+1;
-			total++;
-		}else if(data[questions[q]] == "-"){
-			total++;
-		} 
-	}
-
-	/*
-	For description, cannot be calculated automatically see post test 540-565
-	*/
-	// var num = data[344].match(/[0-9]*/);
-	// num = parseInt(num[0]);
-	// if(num > 0){
-	// 	score = parseInt(score)+num;
-	// 	total++;
-	// }
-	// if(data[345] =="+"){
-	// 	score = score+1;
-	// 	total++;
-	// }else if(data[345] =="-"){
-	// 	total++;
-	// }
-	// var num = data[346].match(/[0-9]*/);
-	// num = parseInt(num[0]);
-	// if(num > 0){
-	// 	score = parseInt(score)+num;
-	// 	total++;
-	// }
-	/*
-	Reading out loud
-	*/
-	var questions = [367,368,369,370,371,372,373,374,375,376];
-	for (q in questions){
-		if(data[questions[q]] == "+"){
-			score = score+1;
-			total++;
-		}else if(data[questions[q]] == "-"){
-			total++;
-		} 
-	}
-
-	newarea.innerHTML = newarea.innerHTML + "<span>"+score+"/"+total+"</span";
-};
-
-
-/* 
- TODO 
-*/
-var scoreMorphology = function(){
-	var area = document.getElementById("score_zone");
-	var newarea = document.createElement("div");
-	newarea.innerHTML = "<span class='scoretitle'>Morphology: </span>";
-	area.appendChild(newarea);
-	var data = JSON.parse(localStorage.getItem("participant")).data;
-	var total = 0;
-	var score = 0;
-	
-	var questions = [324,325,326,327,328,329,330,331,332,333];
-	for (q in questions){
-		console.log( data[questions[q]] );
-		if(data[questions[q]] == "+"){
-			score = score+1;
-			total++;
-		}else if(data[questions[q]].indexOf("1") > -1){
-			score = score+1;
-			total++;
-		}else if(data[questions[q]] == "-"){
-			total++;
-		} 
-	}
-
-	newarea.innerHTML = newarea.innerHTML + "<span>"+score+"/"+total+"</span";
-};
-
-
-/* 
- TODO 
-*/
-var scoreLexicon = function(){
 
 };
 
-
-/* 
- TODO 
+/*
+ TODO
 */
-var scoreSyntax = function(){
-    var area = document.getElementById("score_zone");
-    var newarea = document.createElement("div");
-    newarea.innerHTML = "<span class='scoretitle'>Syntax: </span>";
-    area.appendChild(newarea);
-    var data = JSON.parse(localStorage.getItem("participant")).data;
-    var total = 0;
-    var score = 0;
-
-    /*
-     Simple commands
-     */
-    var questions = [33,34,35,36,37,38,39,40,41,42];
-    for (q in questions){
-        if(data[questions[q]] == "+"){
-            score = score+1;
-            total++;
-        }else if(data[questions[q]] == "-"){
-            total++;
-        }
-    }
-
-    /*
-     Complex commands
-     */
-    var questions = [43,44,45,46,47]
-    for (q in questions){
-    	var num = data[questions[q]].match(/[0-9]*/);
-    	num = parseInt(num[0]);
-    	if(num > 0){
-    		score = parseInt(score)+num;
-    		total=total+3;
-    	}
-    }
+var scoreSyntacticComprehension = function(){
 
 
-    /*
-     For Verbal Auditory discrimination
-     */
     var questions = [
         {"num":66,"res":"2"}
         ,{"num":67,"res":"1"}
@@ -343,6 +285,33 @@ var scoreSyntax = function(){
             total++;
         }
     }
+};
+
+/*
+ TODO
+*/
+var scoreSemanticCategories = function(){
+
+};
+
+/*
+ TODO
+*/
+var scoreSynonyms = function(){
+
+};
+
+/*
+ TODO
+*/
+var scoreAntonyms = function(){
+
+};
+
+/*
+ TODO
+*/
+var scoreGrammaticalityJudgement = function(){
 
     /*
      Grammaticaly Judgement
@@ -356,6 +325,272 @@ var scoreSyntax = function(){
             total++;
         }
     }
+};
+
+/*
+ TODO
+*/
+var scoreSemanticAcceptability = function(){
+
+};
+
+/*
+ TODO
+*/
+var scoreLexicalDecision = function(){
+
+
+	/*
+	For repetition of words
+	*/
+	var questions = [193,194,195,196,197,198,199,200,201,202,203,204,205,206,207,208,209,210,211,212,213,214,215,216,217,218,219,220,221,222,223,224,225,226,227,228,229,230,231,232,233,234,235,236,237,238,239,240,241,242,243,244,245,246,247,248,249,250,251];
+	for (q in questions){
+		if(data[questions[q]] == "+"){
+			score = score+1;
+			total++;
+		}else if(data[questions[q]] == "-"){
+			total++;
+		} 
+	}
+
+};
+
+/*
+ TODO
+*/
+var scoreSeries = function(){
+
+};
+
+/*
+ TODO
+*/
+var scoreVerbalFluency = function(){
+
+};
+
+/*
+ TODO
+*/
+var scoreNaming = function(){
+
+};
+
+/*
+ TODO
+*/
+var scoreSentenceConstruction = function(){
+
+};
+
+/*
+ TODO
+*/
+var scoreSemanticOpposites = function(){
+
+};
+
+/*
+ TODO
+*/
+var scoreDerivationalMorphology = function(){
+
+	var questions = [324,325,326,327,328,329,330,331,332,333];
+	for (q in questions){
+		console.log( data[questions[q]] );
+		if(data[questions[q]] == "+"){
+			score = score+1;
+			total++;
+		}else if(data[questions[q]].indexOf("1") > -1){
+			score = score+1;
+			total++;
+		}else if(data[questions[q]] == "-"){
+			total++;
+		} 
+	}
+};
+
+/*
+ TODO
+*/
+var scoreMorphologicalOpposites = function(){
+
+};
+
+/*
+ TODO
+*/
+var scoreDescription = function(){
+
+/*
+	For description, cannot be calculated automatically see post test 540-565
+	*/
+	// var num = data[344].match(/[0-9]*/);
+	// num = parseInt(num[0]);
+	// if(num > 0){
+	// 	score = parseInt(score)+num;
+	// 	total++;
+	// }
+	// if(data[345] =="+"){
+	// 	score = score+1;
+	// 	total++;
+	// }else if(data[345] =="-"){
+	// 	total++;
+	// }
+	// var num = data[346].match(/[0-9]*/);
+	// num = parseInt(num[0]);
+	// if(num > 0){
+	// 	score = parseInt(score)+num;
+	// 	total++;
+	// }
+};
+
+/*
+ TODO
+*/
+var scoreMentalArithmetic = function(){
+
+};
+
+/*
+ TODO
+*/
+var scoreListeningComprehension = function(){
+
+};
+
+/*
+ TODO
+*/
+var scoreReading = function(){
+
+};
+
+/*
+ TODO
+*/
+var scoreCopying = function(){
+
+};
+
+/*
+ TODO
+*/
+var scoreDictationforWords = function(){
+
+};
+
+/*
+ TODO
+*/
+var scoreDictationforSentences = function(){
+
+};
+
+/*
+ TODO
+*/
+var scoreReadingComprehensionforWords = function(){
+
+	/*
+	Reading out loud
+	*/
+	var questions = [367,368,369,370,371,372,373,374,375,376];
+	for (q in questions){
+		if(data[questions[q]] == "+"){
+			score = score+1;
+			total++;
+		}else if(data[questions[q]] == "-"){
+			total++;
+		} 
+	}
+};
+
+/*
+ TODO
+*/
+var scoreReadingComprehensionforSentences = function(){
+
+};
+
+/*
+ TODO
+*/
+var scoreWriting = function(){
+
+};
+
+/*
+ TODO
+*/
+var score
+
+
+
+/* 
+ TODO 
+*/
+var scorePhonology = function(){
+	var area = document.getElementById("score_zone");
+	var newarea = document.createElement("div");
+	newarea.innerHTML = "<span class='scoretitle'>Phonology: </span>";
+	area.appendChild(newarea);
+	var data = JSON.parse(localStorage.getItem("participant")).data;
+	var total = 0;
+	var score = 0;
+	
+
+	scoreAuditorVerbalDiscrimination();
+	scoreLexicalDecision();
+	scoreDescription();
+	scoreReadingComprehensionforWords();
+	
+	newarea.innerHTML = newarea.innerHTML + "<span>"+score+"/"+total+"</span";
+};
+
+
+/* 
+ TODO 
+*/
+var scoreMorphology = function(){
+	var area = document.getElementById("score_zone");
+	var newarea = document.createElement("div");
+	newarea.innerHTML = "<span class='scoretitle'>Morphology: </span>";
+	area.appendChild(newarea);
+	var data = JSON.parse(localStorage.getItem("participant")).data;
+	var total = 0;
+	var score = 0;
+	
+	scoreDerivationalMorphology();
+
+	newarea.innerHTML = newarea.innerHTML + "<span>"+score+"/"+total+"</span";
+};
+
+
+/* 
+ TODO 
+*/
+var scoreLexicon = function(){
+
+};
+
+
+/* 
+ TODO 
+*/
+var scoreSyntax = function(){
+    var area = document.getElementById("score_zone");
+    var newarea = document.createElement("div");
+    newarea.innerHTML = "<span class='scoretitle'>Syntax: </span>";
+    area.appendChild(newarea);
+    var data = JSON.parse(localStorage.getItem("participant")).data;
+    var total = 0;
+    var score = 0;
+
+  	scoreSimpleandSemiComplexCommands();
+   	scoreComplexCommands();
+	scoreSyntacticComprehension();
+    scoreGrammaticalityJudgement();
 
     newarea.innerHTML = newarea.innerHTML + "<span>"+score+"/"+total+"</span";
 };

@@ -304,34 +304,72 @@ var scoreSyntacticComprehension = function(){
 };
 
 /*
- TODO
+ Semantic Categories
 */
 var scoreSemanticCategories = function(){
+	var score = 0;
+	var total = 0;
+	
+	var questions = [153,154,155,156,157];
+    for (q in questions){
+    	var num = data[questions[q]].match(/[0-9]*/);
+    	num = parseInt(num[0]);
+    	if(num > 0){
+    		score = parseInt(score)+num;
+    		total=total+4;
+    	}
+    }
+    participant.score.SemanticCategories = {"score":score,"total":total};
 
 };
 
 /*
- TODO
+ Synonyms
 */
 var scoreSynonyms = function(){
+	var score = 0;
+	var total = 0;
+	
+	var questions = [158,159,160,161,162];
+    for (q in questions){
+    	var num = data[questions[q]].match(/[0-9]*/);
+    	num = parseInt(num[0]);
+    	if(num > 0){
+    		score = parseInt(score)+num;
+    		total=total+4;
+    	}
+    }
+    participant.score.Synonyms = {"score":score,"total":total};
 
 };
 
 /*
- TODO
+ Antonyms
 */
 var scoreAntonyms = function(){
+	var score = 0;
+	var total = 0;
+	
+	var questions = [163,164,165,166,167];
+    for (q in questions){
+    	var num = data[questions[q]].match(/[0-9]*/);
+    	num = parseInt(num[0]);
+    	if(num > 0){
+    		score = parseInt(score)+num;
+    		total=total+4;
+    	}
+    }
+    participant.score.Antonyms = {"score":score,"total":total};
 
 };
 
 /*
- TODO
+ Grammaticality Judgement 
 */
 var scoreGrammaticalityJudgement = function(){
-
-    /*
-     Grammaticaly Judgement
-     */
+	var score = 0;
+	var total = 0;
+    
     var questions = [173,174,175,176,177,178,179,180,181,182];
     for (q in questions){
         if(data[questions[q]] == "+"){
@@ -341,24 +379,37 @@ var scoreGrammaticalityJudgement = function(){
             total++;
         }
     }
+    participant.score.GrammaticalityJudgement = {"score":score,"total":total};
+
 };
 
 /*
- TODO
+ Semantic Acceptability
 */
 var scoreSemanticAcceptability = function(){
+	var score = 0;
+	var total = 0;
+    
+    var questions = [183,184,185,186,187,188,189,190,191,192];
+    for (q in questions){
+        if(data[questions[q]] == "+"){
+            score = score+1;
+            total++;
+        }else if(data[questions[q]] == "-"){
+            total++;
+        }
+    }
+    participant.score.SemanticAcceptability = {"score":score,"total":total};
 
 };
 
 /*
- TODO
+ RepetitionWords
 */
 var scoreRepetitionWords = function(){
-
-
-	/*
-	For repetition of words
-	*/
+	var score = 0;
+	var total = 0;
+    
 	var questions = [193,195,197,199,201,203,205,207,209,211,213,215,217,219,221,223,225,227,229,231,233,235,237,239,241,243,245,247,249,251];
 	for (q in questions){
 		if(data[questions[q]] == "+"){
@@ -368,17 +419,16 @@ var scoreRepetitionWords = function(){
 			total++;
 		} 
 	}
+	participant.score.RepetitionWords = {"score":score,"total":total};
 
 };
 /*
- TODO
+ Lexical Decision
  */
 var scoreLexicalDecision = function(){
-
-
-    /*
-     For repetition of words
-     */
+    var score = 0;
+	var total = 0;
+    
     var questions = [194,196,198,200,202,204,206,208,210,212,214,216,218,220,222,224,226,228,230,232,234,236,238,240,242,244,246,248,250,252];
     for (q in questions){
         if(data[questions[q]] == "+"){
@@ -388,56 +438,133 @@ var scoreLexicalDecision = function(){
             total++;
         }
     }
-
+	participant.score.LexicalDecision = {"score":score,"total":total};
 };
 
 /*
- TODO
+ Repetition Sentences
 */
 var scoreRepetitionSentences = function(){
-
+	var score = 0;
+	var total = 0;
+    
+    var questions = [253,254,255,256,257,258,259];
+    for (q in questions){
+        if(data[questions[q]] == "+"){
+            score = score+1;
+            total++;
+        }else if(data[questions[q]] == "-"){
+            total++;
+        }
+    }
+	participant.score.RepetitionSentences = {"score":score,"total":total};
 };
 
 /*
- TODO
+ Series
  */
 var scoreSeries = function(){
-
+	var score = 0;
+	var total = 0;
+    
+    var questions = [260,261,262];
+    for (q in questions){
+        if(data[questions[q]] == "+"){
+            score = score+1;
+            total++;
+        }else if(data[questions[q]] == "-"){
+            total++;
+        }
+    }
+	participant.score.Series = {"score":score,"total":total};
 };
 
 /*
- TODO
+ Verbal Fluency TODO what do we do with the number of words?
 */
 var scoreVerbalFluency = function(){
-
+	var score = 0;
+	var total = 0;
+    
+    var questions = [263,265,267];
+    for (q in questions){
+        if(data[questions[q]] == "+"){
+            score = score+1;
+            total++;
+        }else if(data[questions[q]] == "-"){
+            total++;
+        }
+    }
+	participant.score.VerbalFluency = {"score":score,"total":total};
 };
 
 /*
- TODO
+ Naming
 */
 var scoreNaming = function(){
-
+	var score = 0;
+	var total = 0;
+    
+    var questions = [269,270,271,272,273,274,275,276,277,278,279,280,281,282,283,284,285,286,287,288];
+    for (q in questions){
+        if(data[questions[q]] == "+"){
+            score = score+1;
+            total++;
+        }else if(data[questions[q]] == "-"){
+            total++;
+        }
+    }
+	participant.score.Naming = {"score":score,"total":total};
 };
 
 /*
- TODO
+ Sentence Construction TODO what about the number of words etc
 */
 var scoreSentenceConstruction = function(){
-
+	var score = 0;
+	var total = 0;
+    
+    var questions = [289,290,291,294,295,296,299,300,301,304,305,306,309,310,311];
+    for (q in questions){
+        if(data[questions[q]] == "+"){
+            score = score+1;
+            total++;
+        }else if(data[questions[q]] == "-"){
+            total++;
+        }
+    }
+	participant.score.SentenceConstruction = {"score":score,"total":total};
 };
 
 /*
- TODO
+ Semantic Opposites
 */
 var scoreSemanticOpposites = function(){
+	var score = 0;
+	var total = 0;
 
+	var questions = [314,315,316,317,318,319,320,321,322,323];
+	for (q in questions){
+		console.log( data[questions[q]] );
+		if(data[questions[q]] == "+"){
+			score = score+1;
+			total++;
+		}else if(data[questions[q]].indexOf("1") > -1){
+			score = score+1;
+			total++;
+		}else if(data[questions[q]] == "-"){
+			total++;
+		} 
+	}
+	participant.score.SemanticOpposites = {"score":score,"total":total};
 };
 
 /*
- TODO
+ Derivational Morphology
 */
 var scoreDerivationalMorphology = function(){
-
+	var score = 0;
+	var total = 0;
 	var questions = [324,325,326,327,328,329,330,331,332,333];
 	for (q in questions){
 		console.log( data[questions[q]] );
@@ -451,20 +578,36 @@ var scoreDerivationalMorphology = function(){
 			total++;
 		} 
 	}
+	participant.score.DerivationalMorphology = {"score":score,"total":total};
 };
 
 /*
- TODO
+ MorphologicalOpposites
 */
 var scoreMorphologicalOpposites = function(){
-
+	var score = 0;
+	var total = 0;
+	var questions = [334,335,336,337,338,339,340,341,342,343];
+	for (q in questions){
+		console.log( data[questions[q]] );
+		if(data[questions[q]] == "+"){
+			score = score+1;
+			total++;
+		}else if(data[questions[q]].indexOf("1") > -1){
+			score = score+1;
+			total++;
+		}else if(data[questions[q]] == "-"){
+			total++;
+		} 
+	}
+	participant.score.MorphologicalOpposites = {"score":score,"total":total};
 };
 
 /*
  TODO
 */
 var scoreDescription = function(){
-
+	participant.score.Description = {"score":0,"total":0};
 /*
 	For description, cannot be calculated automatically see post test 540-565
 	*/
@@ -489,26 +632,50 @@ var scoreDescription = function(){
 };
 
 /*
- TODO
+ Mental Arithmetic
 */
 var scoreMentalArithmetic = function(){
-
+	var score = 0;
+	var total = 0;
+    
+    var questions = [347,348,349,350,351,352,353,354,355,356,357,358,359,360,361];
+    for (q in questions){
+        if(data[questions[q]] == "+"){
+            score = score+1;
+            total++;
+        }else if(data[questions[q]] == "-"){
+            total++;
+        }
+    }
+	participant.score.MentalArithmetic = {"score":score,"total":total};
 };
 
 /*
- TODO
+ Listening Comprehension
 */
 var scoreListeningComprehension = function(){
-
+	var score = 0;
+	var total = 0;
+    
+    var questions = [362,363,364,365,366];
+    for (q in questions){
+        if(data[questions[q]] == "+"){
+            score = score+1;
+            total++;
+        }else if(data[questions[q]] == "-"){
+            total++;
+        }
+    }
+	participant.score.ListeningComprehension = {"score":score,"total":total};
 };
 
 /*
- TODO
+ Reading Words Aloud
 */
 var scoreReadingWordsAloud = function(){
-    /*
-     Reading out loud
-     */
+    var score = 0;
+	var total = 0;
+    
     var questions = [367,368,369,370,371,372,373,374,375,376];
     for (q in questions){
         if(data[questions[q]] == "+"){
@@ -518,40 +685,104 @@ var scoreReadingWordsAloud = function(){
             total++;
         }
     }
+    participant.score.ReadingWordsAloud = {"score":score,"total":total};
 
 };
 
 /*
- TODO
+ ReadingSentencesAloud
  */
 var scoreReadingSentencesAloud = function(){
-
+    var score = 0;
+	var total = 0;
+    
+    var questions = [377,378,379,380,381,382,383,384,385,386];
+    for (q in questions){
+        if(data[questions[q]] == "+"){
+            score = score+1;
+            total++;
+        }else if(data[questions[q]] == "-"){
+            total++;
+        }
+    }
+    participant.score.ReadingSentencesAloud = {"score":score,"total":total};
 };
 
 /*
- TODO
+ ReadingComprehensionforParagraphs
  */
 var scoreReadingComprehensionforParagraphs = function(){
-
+    var score = 0;
+	var total = 0;
+    
+    var questions = [387,388,389,390,391,392];
+    for (q in questions){
+        if(data[questions[q]] == "+"){
+            score = score+1;
+            total++;
+        }else if(data[questions[q]] == "-"){
+            total++;
+        }
+    }
+    participant.score.ReadingComprehensionforParagraphs = {"score":score,"total":total};
 };
 /*
- TODO
+ Copying
 */
 var scoreCopying = function(){
+	var score = 0;
+	var total = 0;
+    
+    var questions = [393,394,395,396,397];
+    for (q in questions){
+        if(data[questions[q]] == "+"){
+            score = score+1;
+            total++;
+        }else if(data[questions[q]] == "-"){
+            total++;
+        }
+    }
+    participant.score.Copying = {"score":score,"total":total};
 
 };
 
 /*
- TODO
+ DictationofWords
 */
 var scoreDictationofWords = function(){
+	var score = 0;
+	var total = 0;
+    
+    var questions = [398,399,400,401,402];
+    for (q in questions){
+        if(data[questions[q]] == "+"){
+            score = score+1;
+            total++;
+        }else if(data[questions[q]] == "-"){
+            total++;
+        }
+    }
+    participant.score.DictationofWords = {"score":score,"total":total};
 
 };
 
 /*
- TODO
+ DictationofSentences
 */
 var scoreDictationofSentences = function(){
+	var score = 0;
+	var total = 0;
+    
+    var questions = [403,404,405,406,407];
+    for (q in questions){
+        if(data[questions[q]] == "+"){
+            score = score+1;
+            total++;
+        }else if(data[questions[q]] == "-"){
+            total++;
+        }
+    }
+    participant.score.DictationofSentences = {"score":score,"total":total};
 
 };
 

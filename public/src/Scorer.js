@@ -205,7 +205,159 @@ var scoreLexicon = function(){
  TODO 
 */
 var scoreSyntax = function(){
+    var area = document.getElementById("score_zone");
+    var newarea = document.createElement("div");
+    newarea.innerHTML = "<span class='scoretitle'>Syntax: </span>";
+    area.appendChild(newarea);
+    var data = JSON.parse(localStorage.getItem("participant")).data;
+    var total = 0;
+    var score = 0;
 
+    /*
+     Simple commands
+     */
+    var questions = [33,34,35,36,37,38,39,40,41,42];
+    for (q in questions){
+        if(data[questions[q]] == "+"){
+            score = score+1;
+            total++;
+        }else if(data[questions[q]] == "-"){
+            total++;
+        }
+    }
+
+    /*
+     Complex commands
+     */
+    var questions = [43,44,45,46,47]
+    for (q in questions){
+    	var num = data[questions[q]].match(/[0-9]*/);
+    	num = parseInt(num[0]);
+    	if(num > 0){
+    		score = parseInt(score)+num;
+    		total=total+3;
+    	}
+    }
+
+
+    /*
+     For Verbal Auditory discrimination
+     */
+    var questions = [
+        {"num":66,"res":"2"}
+        ,{"num":67,"res":"1"}
+        ,{"num":68,"res":"1"}
+        ,{"num":69,"res":"4"}
+        ,{"num":70,"res":"3"}
+        ,{"num":71,"res":"1"}
+        ,{"num":72,"res":"4"}
+        ,{"num":73,"res":"1"}
+        ,{"num":74,"res":"2"}
+        ,{"num":75,"res":"3"}
+        ,{"num":76,"res":"4"}
+        ,{"num":77,"res":"1"}
+        ,{"num":78,"res":"3"}
+        ,{"num":79,"res":"2"}
+        ,{"num":80,"res":"1"}
+        ,{"num":81,"res":"2"}
+        ,{"num":82,"res":"4"}
+        ,{"num":83,"res":"2"}
+        ,{"num":84,"res":"4"}
+        ,{"num":85,"res":"4"}
+        ,{"num":86,"res":"2"}
+        ,{"num":87,"res":"2"}
+        ,{"num":88,"res":"4"}
+        ,{"num":89,"res":"1"}
+        ,{"num":90,"res":"3"}
+        ,{"num":91,"res":"3"}
+        ,{"num":92,"res":"1"}
+        ,{"num":93,"res":"1"}
+        ,{"num":94,"res":"3"}
+        ,{"num":95,"res":"1"}
+        ,{"num":96,"res":"3"}
+        ,{"num":97,"res":"1"}
+        ,{"num":98,"res":"1"}
+        ,{"num":99,"res":"2"}
+        ,{"num":100,"res":"2"}
+        ,{"num":101,"res":"1"}
+        ,{"num":102,"res":"1"}
+        ,{"num":103,"res":"2"}
+        ,{"num":104,"res":"2"}
+        ,{"num":105,"res":"3"}
+        ,{"num":106,"res":"2"}
+        ,{"num":107,"res":"4"}
+        ,{"num":108,"res":"2"}
+        ,{"num":109,"res":"3"}
+        ,{"num":110,"res":"1"}
+        ,{"num":111,"res":"2"}
+        ,{"num":112,"res":"1"}
+        ,{"num":113,"res":"1"}
+        ,{"num":114,"res":"2"}
+        ,{"num":115,"res":"1"}
+        ,{"num":116,"res":"2"}
+        ,{"num":117,"res":"1"}
+        ,{"num":118,"res":"1"}
+        ,{"num":119,"res":"2"}
+        ,{"num":120,"res":"1"}
+        ,{"num":121,"res":"2"}
+        ,{"num":122,"res":"1"}
+        ,{"num":123,"res":"1"}
+        ,{"num":124,"res":"2"}
+        ,{"num":125,"res":"1"}
+        ,{"num":126,"res":"2"}
+        ,{"num":127,"res":"2"}
+        ,{"num":128,"res":"1"}
+        ,{"num":129,"res":"1"}
+        ,{"num":130,"res":"2"}
+        ,{"num":131,"res":"2"}
+        ,{"num":132,"res":"1"}
+        ,{"num":133,"res":"2"}
+        ,{"num":134,"res":"2"}
+        ,{"num":135,"res":"1"}
+        ,{"num":136,"res":"1"}
+        ,{"num":137,"res":"1"}
+        ,{"num":138,"res":"1"}
+        ,{"num":139,"res":"2"}
+        ,{"num":140,"res":"2"}
+        ,{"num":141,"res":"1"}
+        ,{"num":142,"res":"2"}
+        ,{"num":143,"res":"2"}
+        ,{"num":144,"res":"2"}
+        ,{"num":145,"res":"2"}
+        ,{"num":146,"res":"2"}
+        ,{"num":147,"res":"1"}
+        ,{"num":148,"res":"1"}
+        ,{"num":149,"res":"2"}
+        ,{"num":150,"res":"1"}
+        ,{"num":151,"res":"1"}
+        ,{"num":152,"res":"1"}
+    ];
+    for (q in questions){
+        if(data[questions[q].num] == questions[q].res){
+            score = score + 1;
+            total++;
+        }else if(data[questions[q]]=="0"){
+            //do nothing, the score doesnt change, and the total doesnt go up as per the instructions.
+        }else{
+            score = score+0;
+            total++;
+        }
+    }
+
+    /*
+     Grammaticaly Judgement
+     */
+    var questions = [173,174,175,176,177,178,179,180,181,182];
+    for (q in questions){
+        if(data[questions[q]] == "+"){
+            score = score+1;
+            total++;
+        }else if(data[questions[q]] == "-"){
+            total++;
+        }
+    }
+
+    newarea.innerHTML = newarea.innerHTML + "<span>"+score+"/"+total+"</span";
 };
 
 

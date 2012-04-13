@@ -337,13 +337,13 @@ var scoreSemanticAcceptability = function(){
 /*
  TODO
 */
-var scoreLexicalDecision = function(){
+var scoreRepetitionWords = function(){
 
 
 	/*
 	For repetition of words
 	*/
-	var questions = [193,194,195,196,197,198,199,200,201,202,203,204,205,206,207,208,209,210,211,212,213,214,215,216,217,218,219,220,221,222,223,224,225,226,227,228,229,230,231,232,233,234,235,236,237,238,239,240,241,242,243,244,245,246,247,248,249,250,251];
+	var questions = [193,195,197,199,201,203,205,207,209,211,213,215,217,219,221,223,225,227,229,231,233,235,237,239,241,243,245,247,249,251];
 	for (q in questions){
 		if(data[questions[q]] == "+"){
 			score = score+1;
@@ -354,10 +354,37 @@ var scoreLexicalDecision = function(){
 	}
 
 };
+/*
+ TODO
+ */
+var scoreLexicalDecision = function(){
+
+
+    /*
+     For repetition of words
+     */
+    var questions = [194,196,198,200,202,204,206,208,210,212,214,216,218,220,222,224,226,228,230,232,234,236,238,240,242,244,246,248,250,252];
+    for (q in questions){
+        if(data[questions[q]] == "+"){
+            score = score+1;
+            total++;
+        }else if(data[questions[q]] == "-"){
+            total++;
+        }
+    }
+
+};
 
 /*
  TODO
 */
+var scoreRepetitionSentences = function(){
+
+};
+
+/*
+ TODO
+ */
 var scoreSeries = function(){
 
 };
@@ -462,10 +489,35 @@ var scoreListeningComprehension = function(){
 /*
  TODO
 */
-var scoreReading = function(){
+var scoreReadingWordsAloud = function(){
+    /*
+     Reading out loud
+     */
+    var questions = [367,368,369,370,371,372,373,374,375,376];
+    for (q in questions){
+        if(data[questions[q]] == "+"){
+            score = score+1;
+            total++;
+        }else if(data[questions[q]] == "-"){
+            total++;
+        }
+    }
 
 };
 
+/*
+ TODO
+ */
+var scoreReadingSentencesAloud = function(){
+
+};
+
+/*
+ TODO
+ */
+var scoreReadingComprehensionforParagraphs = function(){
+
+};
 /*
  TODO
 */
@@ -476,14 +528,14 @@ var scoreCopying = function(){
 /*
  TODO
 */
-var scoreDictationforWords = function(){
+var scoreDictationofWords = function(){
 
 };
 
 /*
  TODO
 */
-var scoreDictationforSentences = function(){
+var scoreDictationofSentences = function(){
 
 };
 
@@ -492,20 +544,7 @@ var scoreDictationforSentences = function(){
 */
 var scoreReadingComprehensionforWords = function(){
 
-	/*
-	Reading out loud
-	*/
-	var questions = [367,368,369,370,371,372,373,374,375,376];
-	for (q in questions){
-		if(data[questions[q]] == "+"){
-			score = score+1;
-			total++;
-		}else if(data[questions[q]] == "-"){
-			total++;
-		} 
-	}
 };
-
 /*
  TODO
 */
@@ -540,7 +579,7 @@ var scorePhonology = function(){
 	var score = 0;
 	
 
-	scoreAuditorVerbalDiscrimination();
+	scoreVerbalAuditoryDiscrimination();
 	scoreLexicalDecision();
 	scoreDescription();
 	scoreReadingComprehensionforWords();
@@ -571,7 +610,39 @@ var scoreMorphology = function(){
  TODO 
 */
 var scoreLexicon = function(){
+    var area = document.getElementById("score_zone");
+    var newarea = document.createElement("div");
+    newarea.innerHTML = "<span class='scoretitle'>Lexicon: </span>";
+    area.appendChild(newarea);
+    var data = JSON.parse(localStorage.getItem("participant")).data;
+    var total = 0;
+    var score = 0;
 
+    scorePointing();
+    scoreSimpleandSemiComplexCommands();
+    scoreComplexCommands();
+    scoreVerbalAuditoryDiscrimination();
+    scoreSemanticCategories();
+    scoreSynonyms();
+    scoreAntonyms();
+    scoreRepetitionWords();
+    scoreLexicalDecision();
+    scoreVerbalFluency();
+    scoreNaming();
+    scoreSemanticOpposites();
+    scoreDescription();
+    scoreReadingWordsAloud();
+    scoreCopying();
+    scoreDictationofWords();
+    scoreDictationofSentences();
+    scoreReadingComprehensionforWords();
+
+
+
+
+
+
+    newarea.innerHTML = newarea.innerHTML + "<span>"+score+"/"+total+"</span";
 };
 
 
@@ -591,6 +662,15 @@ var scoreSyntax = function(){
    	scoreComplexCommands();
 	scoreSyntacticComprehension();
     scoreGrammaticalityJudgement();
+    scoreRepetitionSentences();
+    scoreSentenceConstruction();
+    scoreDescription();
+    scoreReadingSentencesAloud();
+    scoreDictationofSentences();
+    scoreReadingComprehensionforSentences();
+
+
+
 
     newarea.innerHTML = newarea.innerHTML + "<span>"+score+"/"+total+"</span";
 };
@@ -600,6 +680,25 @@ var scoreSyntax = function(){
  TODO 
 */
 var scoreSemantics = function(){
+    var area = document.getElementById("score_zone");
+    var newarea = document.createElement("div");
+    newarea.innerHTML = "<span class='scoretitle'>Syntax: </span>";
+    area.appendChild(newarea);
+    var data = JSON.parse(localStorage.getItem("participant")).data;
+    var total = 0;
+    var score = 0;
+
+    scoreSemanticCategories();
+    scoreSynonyms();
+    scoreAntonyms();
+    scoreSemanticAcceptability();
+    scoreSemanticOpposites();
+    scoreDescription();
+    scoreListeningComprehension();
+    scoreReadingComprehensionforParagraphs();
+
+
+    newarea.innerHTML = newarea.innerHTML + "<span>"+score+"/"+total+"</span";
 
 };
 

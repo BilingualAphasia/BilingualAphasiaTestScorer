@@ -559,13 +559,66 @@ var scoreDictationofSentences = function(){
  TODO
 */
 var scoreReadingComprehensionforWords = function(){
+    var score = 0;
+    var total = 0;
 
+    var questions = [
+        {"num":408,"res":"1"}
+        ,{"num":409,"res":"4"}
+        ,{"num":410,"res":"1"}
+        ,{"num":411,"res":"3"}
+        ,{"num":412,"res":"2"}
+        ,{"num":413,"res":"2"}
+        ,{"num":414,"res":"4"}
+        ,{"num":415,"res":"1"}
+        ,{"num":416,"res":"1"}
+        ,{"num":417,"res":"2"}
+
+    ];
+    for (q in questions){
+        if(data[questions[q].num] == questions[q].res){
+            score = score + 1;
+            total++;
+        }else if(data[questions[q]]=="0"){
+            //do nothing, the score doesnt change, and the total doesnt go up as per the instructions.
+        }else{
+            score = score+0;
+            total++;
+        }
+    }
+    participant.score.ReadingComprehensionforWords = {"score":score,"total":total};
 };
 /*
  TODO
 */
 var scoreReadingComprehensionforSentences = function(){
+    var score = 0;
+    var total = 0;
 
+    var questions = [
+        {"num":418,"res":"2"}
+        ,{"num":419,"res":"2"}
+        ,{"num":420,"res":"3"}
+        ,{"num":421,"res":"1"}
+        ,{"num":422,"res":"1"}
+        ,{"num":423,"res":"1"}
+        ,{"num":424,"res":"3"}
+        ,{"num":425,"res":"2"}
+        ,{"num":426,"res":"4"}
+        ,{"num":427,"res":"2"}
+    ];
+    for (q in questions){
+        if(data[questions[q].num] == questions[q].res){
+            score = score + 1;
+            total++;
+        }else if(data[questions[q]]=="0"){
+            //do nothing, the score doesnt change, and the total doesnt go up as per the instructions.
+        }else{
+            score = score+0;
+            total++;
+        }
+    }
+    participant.score.ReadingComprehensionforSentences = {"score":score,"total":total};
 };
 
 /*

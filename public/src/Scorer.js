@@ -47,8 +47,7 @@ var scoreBAT = function(){
 	scoreComprehension();
 	scoreRepetition();
 	scoreJudgment();
-	scoreLexical();
-	scoreAccess();
+	scoreLexicalAccess();
 	scorePropositionalizing();
 	scoreReading();
 	scoreWriting();
@@ -852,18 +851,6 @@ var scoreReadingComprehensionforSentences = function(){
     participant.score.ReadingComprehensionforSentences = {"score":score,"total":total};
 };
 
-/*
- TODO
-*/
-var scoreWriting = function(){
-
-};
-
-/*
- TODO
-*/
-var score
-
 
 
 /* 
@@ -883,7 +870,19 @@ var scorePhonology = function(){
 	scoreLexicalDecision();
 	scoreDescription();
 	scoreReadingComprehensionforWords();
+
+	score = participant.score.VerbalAuditoryDiscrimination.score
+	+ participant.score.LexicalDecision.score
+	+ participant.score.Description.score
+	+ participant.score.ReadingComprehensionforWords.score;
+
+	total = participant.score.VerbalAuditoryDiscrimination.total
+	+ participant.score.LexicalDecision.total
+	+ participant.score.Description.total
+	+ participant.score.ReadingComprehensionforWords.total;
 	
+	participant.score.Phonology = {"score":score,"total":total};
+
 	newarea.innerHTML = newarea.innerHTML + "<span>"+score+"/"+total+"</span";
 };
 
@@ -901,6 +900,15 @@ var scoreMorphology = function(){
 	var score = 0;
 	
 	scoreDerivationalMorphology();
+	scoreMorphologicalOpposites();
+
+	score = participant.score.DerivationalMorphology.score
+	+ participant.score.MorphologicalOpposites.score;
+	
+	total = participant.score.DerivationalMorphology.total
+	+ participant.score.MorphologicalOpposites.total;
+	
+	participant.score.Morphology = {"score":score,"total":total};
 
 	newarea.innerHTML = newarea.innerHTML + "<span>"+score+"/"+total+"</span";
 };
@@ -937,10 +945,43 @@ var scoreLexicon = function(){
     scoreDictationofSentences();
     scoreReadingComprehensionforWords();
 
-
-
-
-
+	score = participant.score.Pointing.score
+	+ participant.score.SimpleandSemiComplexCommands.score
+	+ participant.score.ComplexCommands.score
+	+ participant.score.VerbalAuditoryDiscrimination.score
+	+ participant.score.SemanticCategories.score
+	+ participant.score.Synonyms.score
+	+ participant.score.Antonyms.score
+	+ participant.score.LexicalDecision.score
+	+ participant.score.VerbalFluency.score
+	+ participant.score.Naming.score
+	+ participant.score.SemanticOpposites.score
+	+ participant.score.Description.score
+	+ participant.score.ReadingWordsAloud.score
+	+ participant.score.Copying.score
+	+ participant.score.DictationofWords.score
+	+ participant.score.DictationofSentences.score
+	+ participant.score.ReadingComprehensionforWords.score;
+	
+	total = participant.score.Pointing.total
+	+ participant.score.SimpleandSemiComplexCommands.total
+	+ participant.score.ComplexCommands.total
+	+ participant.score.VerbalAuditoryDiscrimination.total
+	+ participant.score.SemanticCategories.total
+	+ participant.score.Synonyms.total
+	+ participant.score.Antonyms.total
+	+ participant.score.LexicalDecision.total
+	+ participant.score.VerbalFluency.total
+	+ participant.score.Naming.total
+	+ participant.score.SemanticOpposites.total
+	+ participant.score.Description.total
+	+ participant.score.ReadingWordsAloud.total
+	+ participant.score.Copying.total
+	+ participant.score.DictationofWords.total
+	+ participant.score.DictationofSentences.total
+	+ participant.score.ReadingComprehensionforWords.total;
+	
+	participant.score.Lexicon = {"score":score,"total":total};
 
     newarea.innerHTML = newarea.innerHTML + "<span>"+score+"/"+total+"</span";
 };
@@ -968,11 +1009,30 @@ var scoreSyntax = function(){
     scoreReadingSentencesAloud();
     scoreDictationofSentences();
     scoreReadingComprehensionforSentences();
+	
+	score = participant.score.SimpleandSemiComplexCommands.score
+	+ participant.score.ComplexCommands.score
+	+ participant.score.SyntacticComprehension.score
+	+ participant.score.GrammaticalityJudgement.score
+	+ participant.score.RepetitionSentences.score
+	+ participant.score.SentenceConstruction.score
+	+ participant.score.Description.score
+	+ participant.score.ReadingSentencesAloud.score
+	+ participant.score.DictationofSentences.score
+	+ participant.score.ReadingComprehensionforSentences.score;
+	
+	total = participant.score.SimpleandSemiComplexCommands.total
+	+ participant.score.ComplexCommands.total
+	+ participant.score.SyntacticComprehension.total
+	+ participant.score.GrammaticalityJudgement.total
+	+ participant.score.RepetitionSentences.total
+	+ participant.score.SentenceConstruction.total
+	+ participant.score.Description.total
+	+ participant.score.ReadingSentencesAloud.total
+	+ participant.score.DictationofSentences.total
+	+ participant.score.ReadingComprehensionforSentences.total;
 
-
-
-
-
+	participant.score.Syntax = {"score":score,"total":total};
 
     newarea.innerHTML = newarea.innerHTML + "<span>"+score+"/"+total+"</span";
 };
@@ -999,6 +1059,26 @@ var scoreSemantics = function(){
     scoreListeningComprehension();
     scoreReadingComprehensionforParagraphs();
 
+	score = participant.score.SemanticCategories.score
+	+ participant.score.Synonyms.score
+	+ participant.score.Antonyms.score
+	+ participant.score.SemanticAcceptability.score
+	+ participant.score.SemanticOpposites.score
+	+ participant.score.Description.score
+	+ participant.score.ListeningComprehension.score
+	+ participant.score.ReadingComprehensionforParagraphs.score;
+	
+	total = participant.score.SemanticCategories.total
+	+ participant.score.Synonyms.total
+	+ participant.score.Antonyms.total
+	+ participant.score.SemanticAcceptability.total
+	+ participant.score.SemanticOpposites.total
+	+ participant.score.Description.total
+	+ participant.score.ListeningComprehension.total
+	+ participant.score.ReadingComprehensionforParagraphs.total;
+	
+
+	participant.score.Semantics = {"score":score,"total":total};
 
     newarea.innerHTML = newarea.innerHTML + "<span>"+score+"/"+total+"</span";
 
@@ -1045,7 +1125,31 @@ var scoreComprehension = function(){
     scoreReadingComprehensionforWords();
     scoreReadingComprehensionforSentences();
 
-
+	score = participant.score.Pointing.score
+	+ participant.score.SimpleandSemiComplexCommands.score
+	+ participant.score.ComplexCommands.score
+	+ participant.score.VerbalAuditoryDiscrimination.score
+	+ participant.score.SyntacticComprehension.score
+	+ participant.score.ListeningComprehension.score
+	+ participant.score.ReadingComprehensionforParagraphs.score
+	+ participant.score.DictationofWords.score
+	+ participant.score.DictationofSentences.score
+	+ participant.score.ReadingComprehensionforWords.score
+	+ participant.score.ReadingComprehensionforSentences.score;
+	
+	total = participant.score.Pointing.total
+	+ participant.score.SimpleandSemiComplexCommands.total
+	+ participant.score.ComplexCommands.total
+	+ participant.score.VerbalAuditoryDiscrimination.total
+	+ participant.score.SyntacticComprehension.total
+	+ participant.score.ListeningComprehension.total
+	+ participant.score.ReadingComprehensionforParagraphs.total
+	+ participant.score.DictationofWords.total
+	+ participant.score.DictationofSentences.total
+	+ participant.score.ReadingComprehensionforWords.total
+	+ participant.score.ReadingComprehensionforSentences.total;
+	
+	participant.score.Comprehension = {"score":score,"total":total};
 
     newarea.innerHTML = newarea.innerHTML + "<span>"+score+"/"+total+"</span";
 };
@@ -1066,6 +1170,13 @@ var scoreRepetition = function(){
     scoreRepetitionWords();
     scoreRepetitionSentences();
 
+    score = participant.score.RepetitionWords.score
+    + participant.score.RepetitionSentences.score;
+    
+    total = participant.score.RepetitionWords.total
+    + participant.score.RepetitionSentences.total;
+    
+    participant.score.Repetition = {"score":score,"total":total};
 
     newarea.innerHTML = newarea.innerHTML + "<span>"+score+"/"+total+"</span";
 };
@@ -1088,6 +1199,17 @@ var scoreJudgment = function(){
     scoreLexicalDecision();
     scoreSeries();
 
+    score = participant.score.GrammaticalityJudgement.score
+    + participant.score.SemanticAcceptability.score
+    + participant.score.LexicalDecision.score
+    + participant.score.Series.score;
+    
+    total = participant.score.GrammaticalityJudgement.total
+    + participant.score.SemanticAcceptability.total
+    + participant.score.LexicalDecision.total
+    + participant.score.Series.total;
+    
+    participant.score.Judgment = {"score":score,"total":total};
 
     newarea.innerHTML = newarea.innerHTML + "<span>"+score+"/"+total+"</span";
 };
@@ -1116,13 +1238,32 @@ var scoreLexicalAccess = function(){
     scoreDescription();
     scoreMentalArithmetic();
 
-
+    score = participant.score.SemanticCategories.score
+    + participant.score.Synonyms.score
+    + participant.score.Antonyms.score
+    + participant.score.VerbalFluency.score
+    + participant.score.Naming.score
+    + participant.score.SemanticOpposites.score
+    + participant.score.DerivationalMorphology.score
+    + participant.score.MorphologicalOpposites.score
+    + participant.score.Description.score
+    + participant.score.MentalArithmetic.score;
+   
+    total = participant.score.SemanticCategories.total
+    + participant.score.Synonyms.total
+    + participant.score.Antonyms.total
+    + participant.score.VerbalFluency.total
+    + participant.score.Naming.total
+    + participant.score.SemanticOpposites.total
+    + participant.score.DerivationalMorphology.total
+    + participant.score.MorphologicalOpposites.total
+    + participant.score.Description.total
+    + participant.score.MentalArithmetic.total;
+    
+    participant.score.LexicalAccess = {"score":score,"total":total};
 
     newarea.innerHTML = newarea.innerHTML + "<span>"+score+"/"+total+"</span";
 };
-
-
-
 
 /* 
  TODO 
@@ -1141,10 +1282,20 @@ var scorePropositionalizing = function(){
     scoreMorphologicalOpposites();
     scoreDescription();
 
+    score = participant.score.SentenceConstruction.score
+    + participant.score.DerivationalMorphology.score
+    + participant.score.MorphologicalOpposites.score
+    + participant.score.Description.score;
+   
+    total = participant.score.SentenceConstruction.total
+    + participant.score.DerivationalMorphology.total
+    + participant.score.MorphologicalOpposites.total
+    + participant.score.Description.total;
+
+    participant.score.Propositionalizing = {"score":score,"total":total};
 
     newarea.innerHTML = newarea.innerHTML + "<span>"+score+"/"+total+"</span";
 };
-
 
 /* 
  TODO 
@@ -1164,10 +1315,22 @@ var scoreReading = function(){
     scoreReadingComprehensionforWords();
     scoreReadingComprehensionforSentences();
 
+    score = participant.score.ReadingWordsAloud.score
+    + participant.score.ReadingSentencesAloud.score
+    + participant.score.ReadingComprehensionforParagraphs.score
+    + participant.score.ReadingComprehensionforWords.score
+    + participant.score.ReadingComprehensionforSentences.score;
+   
+    total = participant.score.ReadingWordsAloud.total
+    + participant.score.ReadingSentencesAloud.total
+    + participant.score.ReadingComprehensionforParagraphs.total
+    + participant.score.ReadingComprehensionforWords.total
+    + participant.score.ReadingComprehensionforSentences.total;
+
+    participant.score.Reading = {"score":score,"total":total};
+
     newarea.innerHTML = newarea.innerHTML + "<span>"+score+"/"+total+"</span";
 };
-};
-
 
 /* 
  TODO 
@@ -1181,10 +1344,19 @@ var scoreWriting = function(){
     var total = 0;
     var score = 0;
 
-   scoreCopying();
-   scoreDictationofWords();
-   scoreDictationofSentences();
+    scoreCopying();
+    scoreDictationofWords();
+    scoreDictationofSentences();
 
+    score = participant.score.Copying.score
+    + participant.score.DictationofWords.score
+    + participant.score.DictationofSentences.score;
+   
+    total = participant.score.Copying.total
+    + participant.score.DictationofWords.total
+    + participant.score.DictationofSentences.total;
+
+    participant.score.Writing = {"score":score,"total":total};
 
     newarea.innerHTML = newarea.innerHTML + "<span>"+score+"/"+total+"</span";
 };

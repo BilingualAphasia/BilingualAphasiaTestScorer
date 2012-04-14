@@ -129,7 +129,7 @@ function change_dataset(newDataset) {
         ];
     }
     arcs.transition()
-        .duration(1500)			// 1 sec transition
+        .duration(2000)			// 1 sec transition
         .attrTween('d', function(d){return arc_tween(d, newDataset)})	// tween from dataset to newDataset
         .each("end", function() { dataset = newDataset});					// set dataset to newDataset
 }

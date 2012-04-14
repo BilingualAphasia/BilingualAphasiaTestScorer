@@ -24,16 +24,24 @@ header{
 	text-align:center;
 }
 p {
-	padding-bottom: 1em;
+	margin: 1em;
+
 }
 a {
-	color:#f95;
+	color:#fa7;
 	text-decoration: none;
 	font-weight:bold ;
 }
 h1, h2, h3, h4 {
 	font-family: Lobster, Arial, Helvetica, sans-serif;
+	margin:1em;
 	
+}
+.red{
+	color:#900;
+}
+.green{
+	color:#090;
 }
 #viz{
 	text-anchor: middle;
@@ -202,3 +210,6 @@ footer {
 		footer ul li a {
 			display: block;
 		}
+.hidden{
+	display:none;
+}

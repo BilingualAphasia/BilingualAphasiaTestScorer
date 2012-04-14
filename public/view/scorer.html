@@ -6,9 +6,8 @@
 <body>
 
 <h1> Bilingual Aphasia Test Scorer</h1>
-<p>
- Drag and drop .csv files to this page to import your data.</p>
-<div id="score_zone">
+
+<div class="hidden" id="score_zone">
  
  <h2>Patient Profile:</h2>
  <div id="viz"></div>
@@ -19,10 +18,47 @@
 
 </div>
 
-<input type="button" onclick="importFromCSV()" value="1"/>
-<input type="button" onclick="combineSheets(0,1)" value="2"/>
-<input type="button" class="purple" onclick="findQuestionsInRow(0)" value="3"/>
+<hr/>
+<img  width="600" align="right" src="./../images/spreadsheet_to_profile.png"/></a>
+<h1>Instructions</h1>	
+<h1>Step 2: import the spreadsheets</h1>
 
+
+
+<h3> 2.0 Save</h3>
+<p>Save the spreadsheets to your computer as a .csv file. </p>
+
+<ul>
+<li><a target="top" href="https://docs.google.com/spreadsheet/ccc?key=0AjJz4n1qwkYAdHZZcEw1MWh6X1Y4VXJkQ0E2dl9GblE">Questions 1. - 190.</a></li>
+<li><a target="top" href="https://docs.google.com/spreadsheet/ccc?key=0AjJz4n1qwkYAdGMwbkhPWmZ2Z090RE5XZG1BclRfVmc">Questions 191. - 427.</a></li>
+</ul>
+
+<h3> 2.1 Drag and drop</h3>
+<ul>
+<li>Drag and drop the first file anywhere on this page, it will put the text below. Click on Button 1. <input type="button" onclick="importFromCSV()" value="1"/></li>
+<li>Drag and drop the second file anywhere on this page. Click on Button 1.</li>
+</ul>
+
+</p>
+
+<h3> 2.2 Combine</h3>
+
+<p>Click on Button 2 to combine the spreadsheets.
+
+<input type="button" onclick="combineSheets(0,1)" value="2"/></p>
+
+<h3> 2.3 Convert</h3>
+
+<p>Click on Button 3 to convert the data into a patient.
+<input type="button" class="purple" onclick="findQuestionsInRow(0)" value="3"/></p>
+
+
+<h1>Step 3: get the patient's profile</h1>
+
+<p> Refresh the page to see the patient's profile.
+</p>
+
+<hr/>
 <h2>Patient's raw Data:</h2>
  
 <div id="question_area" ></div>

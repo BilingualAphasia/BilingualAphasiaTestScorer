@@ -1,0 +1,215 @@
+/* Tell the browser to render HTML 5 elements as block */
+header,footer,section,aside,nav,article {
+	display: block;
+}
+@font-face {
+  font-family: 'Lobster';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Lobster'), url('./../fonts/google_lobster_font.woff') format('woff');
+}
+
+body {
+	margin: 0 auto;
+	padding: 1em 0;
+	font-family: Arial, Helvetica, sans-serif;
+	background-color: #333;
+	height: 90%;
+	color: #fff;
+}
+header{
+	width:80%;
+	white-space:nowrap;
+	margin:auto;
+	text-align:center;
+}
+p {
+	margin: 1em;
+
+}
+a {
+	color:#fa7;
+	text-decoration: none;
+	font-weight:bold ;
+}
+h1, h2, h3, h4 {
+	font-family: Lobster, Arial, Helvetica, sans-serif;
+	margin:1em;
+	
+}
+.red{
+	color:#900;
+}
+.green{
+	color:#090;
+}
+#viz{
+	text-anchor: middle;
+    alignment-baseline: middle;
+   	color: #fff;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: .3em;
+    
+}
+#drop_zone{
+	background-color:#333;
+	margin:1em;
+	padding:1em;
+}
+#question_area{
+	background-color:#555;
+	margin:1em;
+	padding:1em;
+}
+#data_area{
+	background-color:#555;
+	margin:1em;
+	padding:1em;
+}
+#score_zone{
+	margin:1em;
+}
+.scoretitle{
+	color:#69f;
+	font-weight: bold;
+  
+}
+.question{
+	color:#FFcc00;
+}
+.participantquestion{
+	color:#c3f;
+}
+.response{
+	color:#FFFF00;
+}
+.service{
+	clear:both;	
+	padding: 1em;
+	width:60%;
+	background-color:#333;
+	margin:auto;
+}		
+#quote{
+	font-family: Lobster, Arial, Helvetica, sans-serif;
+	font-size: 2em;
+	margin: auto;
+	width: 80% ;
+}
+#case_study{
+	margin: 3em ;
+	height: 8em;
+}
+#service_cost{
+	float:right;
+	font-family: Lobster, Arial, Helvetica, sans-serif;
+	font-size: 1.5em;
+}
+#service_name{
+	float:left;
+	font-family: Lobster, Arial, Helvetica, sans-serif;
+	font-size: 1.5em;
+}
+#service_description{
+	clear:both;
+	padding: 1em;
+}
+#details{
+	display: table;
+	margin:auto;
+	padding: 1em;
+}
+#details section {
+	display: table-cell;
+	width: 40%;
+	vertical-align:top;
+	padding: .2em;
+}
+input, textarea{
+	background-color:#f90;
+	color:#fff;
+
+	border:1px solid #f8b635;
+	padding:  0.25em 1em 0.25em 1em;
+	font-size:1em;
+	font-weight: bold;
+	/* CSS3 spicing */
+	-moz-border-radius:4px;
+	-webkit-border-radius:4px;	
+	-moz-box-shadow:0 0 6px #f8b635;
+	-webkit-box-shadow:0 0 6px #f8b635;		
+}
+.tilerow{
+	margin: auto;
+}
+.tile{
+	padding: 1em;
+	width: 250px;
+	height: 250px;
+}
+.headertile{
+	padding: .2em;
+	width: 80px;
+	height: 80px;
+}
+
+.copyright {
+	font-size: .7em;
+}
+.purple{
+	background-color:#c0c;
+
+}
+/*------------------------------
+=FOOTER
+------------------------------*/
+footer {
+	position: absolute;
+	left: 0;
+	width: 100%;
+	background-color: #000;
+
+}
+
+	footer div {
+		display: table;
+		margin: 0 auto;
+		padding: 44px 0;
+		width: 940px;
+		color: #777;
+	}
+	
+		footer div section {
+			display: table-cell;
+			width: 300px;
+		}
+		
+		footer div #about, footer div #blogroll {
+			padding-right: 20px;
+		}
+		
+	footer h3 {
+		color: #FFF;
+	}
+	
+	footer a {
+		color: #999;
+	}
+	
+		footer a:hover {
+			color: #FFF;
+			text-decoration: none;
+		}
+	
+	footer ul {
+		margin: 0 0 0 40px;
+		list-style: square;
+		color: #565656;
+	}
+	
+		footer ul li a {
+			display: block;
+		}
+.hidden{
+	display:none;
+}

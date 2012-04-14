@@ -6,8 +6,9 @@
 <body>
 
 <h1> Bilingual Aphasia Test Scorer</h1>
-
-<div id="score_zone"> 
+<p>
+ Drag and drop csv files to this page to import a participant.</p>
+<div id="score_zone">
  
  <h2>Participant Scores:</h2>
  <div id="viz"></div>
@@ -17,6 +18,7 @@
 
 
 </div>
+
 <input type="button" onclick="importFromCSV()" value="Import Text below"/>
 <input type="button" onclick="combineSheets(0,1)" value="Combine Sheets 0 and 1"/>
 <input type="button" class="purple" onclick="findQuestionsInRow(0)" value="Convert data into a Participant"/>

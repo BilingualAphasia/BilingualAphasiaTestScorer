@@ -36,7 +36,9 @@ SCORES BY LINGUISTIC LEVEL AND SKILL
 var scoreBAT = function(){
 	participant.score = {};
 	window.data = participant.data;
-
+    if(!window.data){
+        return;
+    }
 	scorePhonology();
 	scoreMorphology();
 	scoreLexicon();

@@ -27,7 +27,9 @@ p {
 	padding-bottom: 1em;
 }
 a {
-	color:#fff;
+	color:#f95;
+	text-decoration: none;
+	font-weight:bold ;
 }
 h1, h2, h3, h4 {
 	font-family: Lobster, Arial, Helvetica, sans-serif;
@@ -118,8 +120,9 @@ h1, h2, h3, h4 {
 input, textarea{
 	background-color:#f90;
 	color:#fff;
+
 	border:1px solid #f8b635;
-	padding:  0.25em 0.25em 0.25em 0.25em;
+	padding:  0.25em 1em 0.25em 1em;
 	font-size:1em;
 	font-weight: bold;
 	/* CSS3 spicing */

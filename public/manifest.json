@@ -1,22 +1,19 @@
 {
   "name": "Bilingual Aphasia Test Scorer",
   "version": "1.0",
-  "description": "an html file to calculate score like an excel formula from a google spreadsheet",
+  "description": "An WebApp to enter BAT data, and to get a patient's profile. ",
   "app": {
     "launch": {
       "local_path": "view/main.html"
     }
   },
   "offline_enabled": true,
-  "content_scripts": [
-    {
-      "matches": ["http://www.google.com/robots.txt*"],
-      "js": ["oauth2/oauth2_inject.js"],
-        "run_at": "document_start"
-    }
-  ],
   "permissions": [
-    "https://accounts.google.com/o/oauth2/token",
-    "https://www.googleapis.com/"
-  ]
+    "unlimitedStorage"
+  ],
+  "icons": { 
+    "16": "icon16.png",
+    "48": "icon48.png",
+    "128": "icon128.png" 
+  }
 }

@@ -11,6 +11,7 @@ var dataset = [
     ,{name: "Repetition", values: {0: 0, 1: 1 }}
     ,{name: "Judgment", values: {0: 0, 1: 1 }}
     ,{name: "LexicalAccess", values: {0: 0, 1: 1 }}
+    ,{name: "Propositionalizing", values: {0: 0, 1: 1 }}
     ,{name: "Reading", values: {0: 0, 1: 1 }}
     ,{name: "Writing", values: {0: 0, 1: 1 }}       
 ];
@@ -48,7 +49,7 @@ var sizes = {
     large: {inner: 0.6, outer: 0.85, xoffset: 0, x_legoffset: 645, y_legoffset: 15, gap_factor: 0.85 }
 };
 
-var font_size = 15;
+var font_size = 12;
 
 ////////////////////////////////////////////////////////////////////////////////
 // Layout & Page controls //////////////////////////////////////////////////////
@@ -57,7 +58,7 @@ var font_size = 15;
 // various spacing parameters
 var chartW      = 1000;
 var chartH      = 300;
-var radius      = chartW / 16;
+var radius      = chartW / 18;
 var background  = '#FEFEFE';
 var foreground  = '#fff';
 
@@ -122,6 +123,7 @@ function change_dataset(newDataset) {
             ,{name: "Repetition", values: {0: 0, 1: 1 }}
             ,{name: "Judgment", values: {0: 0, 1: 1 }}
             ,{name: "LexicalAccess", values: {0: 0, 1: 1 }}
+            ,{name: "Propositionalizing", values: {0: 0, 1: 1 }}
             ,{name: "Reading", values: {0: 0, 1: 1 }}
             ,{name: "Writing", values: {0: 0, 1: 1 }}       
         ];
@@ -213,6 +215,7 @@ function submitForm() {
         ,{name: "Repetition", values: {0: 0, 1: 1 }}
         ,{name: "Judgment", values: {0: 0, 1: 1 }}
         ,{name: "LexicalAccess", values: {0: 0, 1: 1 }}
+        ,{name: "Propositionalizing", values: {0: 0, 1: 1 }}
         ,{name: "Reading", values: {0: 0, 1: 1 }}
         ,{name: "Writing", values: {0: 0, 1: 1 }}       
     ];

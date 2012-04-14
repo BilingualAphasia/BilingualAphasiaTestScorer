@@ -66,6 +66,7 @@ var scoreBAT = function(){
         ,{name: "Repetition", values: {0: participant.score.Repetition.score, 1: participant.score.Repetition.total-participant.score.Repetition.score }}
         ,{name: "Judgment", values: {0: participant.score.Judgment.score, 1: participant.score.Judgment.total-participant.score.Judgment.score }}
         ,{name: "LexicalAccess", values: {0: participant.score.LexicalAccess.score, 1: participant.score.LexicalAccess.total-participant.score.LexicalAccess.score }}
+        ,{name: "Propositionalizing", values: {0: participant.score.Propositionalizing.score, 1: participant.score.Propositionalizing.total-participant.score.Propositionalizing.score }}
         ,{name: "Reading", values: {0: participant.score.Reading.score, 1: participant.score.Reading.total-participant.score.Reading.score }}
         ,{name: "Writing", values: {0: participant.score.Writing.score, 1: participant.score.Writing.total-participant.score.Writing.score }}
           

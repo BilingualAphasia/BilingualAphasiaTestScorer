@@ -33,7 +33,14 @@ h1, h2, h3, h4 {
 	font-family: Lobster, Arial, Helvetica, sans-serif;
 	
 }
-
+#viz{
+	text-anchor: middle;
+    alignment-baseline: middle;
+   	color: #fff;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: .3em;
+    
+}
 #drop_zone{
 	background-color:#333;
 	margin:1em;

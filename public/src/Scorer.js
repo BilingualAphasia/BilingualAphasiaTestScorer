@@ -42,8 +42,7 @@ var scoreBAT = function(){
 	scoreLexicon();
 	scoreSyntax();
 	scoreSemantics();
-	scoreMorphologySyntaxC();
-	scoreLexiconC();
+	
 	scoreComprehension();
 	scoreRepetition();
 	scoreJudgment();
@@ -51,8 +50,28 @@ var scoreBAT = function(){
 	scorePropositionalizing();
 	scoreReading();
 	scoreWriting();
+
+    scoreMorphologySyntaxC();
+    scoreLexiconC();
 	scoreTranslationC();
 	scoreGrammaticalityJudgmentC();
+
+    var userData = [
+        {name: "Phonology", values: {0: participant.score.Phonology.score, 1: participant.score.Phonology.total-participant.score.Phonology.score }}
+        ,{name: "Morphology", values: {0: participant.score.Morphology.score, 1: participant.score.Morphology.total-participant.score.Morphology.score }}
+        ,{name: "Lexicon", values: {0: participant.score.Lexicon.score, 1: participant.score.Lexicon.total-participant.score.Lexicon.score }}
+        ,{name: "Syntax", values: {0: participant.score.Syntax.score, 1: participant.score.Syntax.total-participant.score.Syntax.score }}
+        ,{name: "Semantics", values: {0: participant.score.Semantics.score, 1: participant.score.Semantics.total-participant.score.Semantics.score }}
+        ,{name: "Comprehension", values: {0: participant.score.Comprehension.score, 1: participant.score.Comprehension.total-participant.score.Comprehension.score }}
+        ,{name: "Repetition", values: {0: participant.score.Repetition.score, 1: participant.score.Repetition.total-participant.score.Repetition.score }}
+        ,{name: "Judgment", values: {0: participant.score.Judgment.score, 1: participant.score.Judgment.total-participant.score.Judgment.score }}
+        ,{name: "LexicalAccess", values: {0: participant.score.LexicalAccess.score, 1: participant.score.LexicalAccess.total-participant.score.LexicalAccess.score }}
+        ,{name: "Reading", values: {0: participant.score.Reading.score, 1: participant.score.Reading.total-participant.score.Reading.score }}
+        ,{name: "Writing", values: {0: participant.score.Writing.score, 1: participant.score.Writing.total-participant.score.Writing.score }}
+          
+  ];
+    console.log(userData);
+    change_dataset(userData);
 };
 
 
@@ -544,7 +563,7 @@ var scoreSemanticOpposites = function(){
 
 	var questions = [314,315,316,317,318,319,320,321,322,323];
 	for (q in questions){
-		console.log( data[questions[q]] );
+		//console.log( data[questions[q]] );
 		if(data[questions[q]] == "+"){
 			score = score+1;
 			total++;
@@ -566,7 +585,7 @@ var scoreDerivationalMorphology = function(){
 	var total = 0;
 	var questions = [324,325,326,327,328,329,330,331,332,333];
 	for (q in questions){
-		console.log( data[questions[q]] );
+		//console.log( data[questions[q]] );
 		if(data[questions[q]] == "+"){
 			score = score+1;
 			total++;
@@ -588,7 +607,7 @@ var scoreMorphologicalOpposites = function(){
 	var total = 0;
 	var questions = [334,335,336,337,338,339,340,341,342,343];
 	for (q in questions){
-		console.log( data[questions[q]] );
+		//console.log( data[questions[q]] );
 		if(data[questions[q]] == "+"){
 			score = score+1;
 			total++;

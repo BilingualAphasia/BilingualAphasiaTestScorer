@@ -1,7 +1,7 @@
 {
   "name": "Bilingual Aphasia Test Scorer",
-  "version": "1.2.3",
-  "description": "An WebApp to enter the Bilingual Aphasia Test data, and to get a patient's profile. ",
+  "version": "1.2.4",
+  "description": "An WebApp to enter Bilingual Aphasia Test data, and to get a patient's profile. ",
   "app": {
     "launch": {
       "local_path": "view/main.html"
